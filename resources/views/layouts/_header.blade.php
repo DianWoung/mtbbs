@@ -24,12 +24,12 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
-                                <img src="{{ config('app.url').$user->avatar }}" class="img-responsive rounded-circle" width="30px" height="30px">
+                                <img src="{{ config('app.url').Auth::user()->avatar }}" class="img-responsive rounded-circle" width="30px" height="30px">
                             </span>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="{{ route('users.edit',Auth::id()) }}">
+                            <a class="dropdown-item" href="{{ route('users.show',Auth::id()) }}">
                                 <i class="material-icons">perm_identity</i>个人中心
                             </a>
                              <a class="dropdown-item" href="{{ route('users.edit',Auth::id()) }}">

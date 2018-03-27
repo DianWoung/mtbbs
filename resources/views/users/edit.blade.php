@@ -30,7 +30,7 @@
                         <textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{ old('introduction', $user->introduction ) }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="customFile" class="custom-file-label" >上传用户头像</label>
+                        <label for="customFile">上传用户头像</label>
                         <input type="file" class="form-control-file" name="avatar" id="customFile">
 
                     </div>
