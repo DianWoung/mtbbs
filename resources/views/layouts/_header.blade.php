@@ -1,28 +1,33 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light  justify-content-end">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
+
         <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/') }}">
             MTBBS
         </a>
+
     <!-- Collapsed Hamburger -->
     <button class="navbar-toggler my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#app-navbar-collapse" aria-controls="app-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <ul class="nav nav-pills navbar-nav mr-auto mt-2 mt-lg-0">
+
+            <ul class="mr-auto mt-2 mt-lg-0 nav">
                     <li class="nav-item {{ active_class(if_route('topics.index')) }}"><a class="nav-link" href="{{ route('topics.index') }}">话题</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
+
             </ul>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
                 <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </li>
                 <!-- Authentication Links -->
                 @guest
@@ -58,5 +63,6 @@
 
 
         </div>
-</div>
+        </div>
+
 </nav>

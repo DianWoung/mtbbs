@@ -10118,8 +10118,14 @@ a.text-dark:focus {
   margin-top: 0px;
 }
 
-.active {
-  background: #e7e7e7;
+.sticky-top .active {
+  background: #dcebf5;
+}
+
+.sticky-top .nav > li > a {
+  position: relative;
+  display: block;
+  color: #444444;
 }
 
 /* Sticky footer styles */
@@ -10178,6 +10184,16 @@ body {
 .topics-index-page .topic-list a,
 .categories-show-page .topic-list a {
   color: #444444;
+}
+
+.topics-index-page .topic-list .active,
+.categories-show-page .topic-list .active {
+  background: #00b5ad;
+}
+
+.topics-index-page .topic-list .active a,
+.categories-show-page .topic-list .active a {
+  color: white;
 }
 
 .topics-index-page .topic-list .meta,

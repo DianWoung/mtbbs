@@ -55,11 +55,18 @@
   border-top: 4px solid #00b5ad;
   margin-bottom: 40px;
   margin-top: 0px;
+  .active {
+    background: #dcebf5;
+  }
+  .nav > li > a {
+    position: relative;
+    display: block;
+    //padding: 5px 14px;
+  //  font-size: 0.9em;
+    color: #444444;
+  }
+}
 
-}
-.active {
-  background: #e7e7e7;
-}
 
 /* Sticky footer styles */
 html {
@@ -114,6 +121,12 @@ body {
     }
     a {
       color: #444444;
+    }
+    .active {
+      background: #00b5ad;
+      a {
+        color: white;
+      }
     }
     .meta {
       font-size:0.9em;
