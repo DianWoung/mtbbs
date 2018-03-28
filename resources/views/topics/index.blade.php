@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
-@section('title', '话题列表')
+@section('title', isset($category) ? $category->name : '话题列表')
 
 @section('content')
 
     <div class="row">
-        <div class="col-lg-9 col-md-9 topic-list">
-            <div class="card">
+        <div class="col-lg-9 col-md-9">
+            @if (isset($category))
+                <div class="alert alert-info" role="alert">
+                    {{ $category->name }} ：{{ $category->description }}
+                </div>
+            @endif
 
-                <div class="card-body">
+            <div class="card">
+                <div class="card-body topic-list">
                     <ul class="nav nav-pills">
                         <li role="presentation" class="nav-item">
                             <a href="#" class="nav-link active">最后回复</a>
@@ -17,13 +22,11 @@
                             <a href="#" class="nav-link">最新发布</a>
                         </li>
                     </ul>
-                </div>
-
-                <div class="card-body">
+                    <br>
                     {{-- 话题列表 --}}
                     @include('topics._topic_list', ['topics' => $topics])
                     {{-- 分页 --}}
-                    <hr>
+                    <br>
                     {!! $topics->render() !!}
                 </div>
             </div>

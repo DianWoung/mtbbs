@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light  justify-content-end">
     <div class="container">
         <!-- Branding Image -->
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -9,13 +9,21 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-        <div class="justify-content-between">
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="nav nav-pills navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item {{ active_class(if_route('topics.index')) }}"><a class="nav-link" href="{{ route('topics.index') }}">话题</a></li>
+                    <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
+                    <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
+                    <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
+                    <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
+            </ul>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item"><a class="nav-link" href="{{ route('login')  }}">登录</a></li>
@@ -24,12 +32,12 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
-                                <img src="{{ config('app.url').Auth::user()->avatar }}" class="img-responsive rounded-circle" width="30px" height="30px">
+                                <img src="https://fsdhubcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-responsive img-circle" width="30px" height="30px">
                             </span>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="{{ route('users.show',Auth::id()) }}">
+                            <a class="dropdown-item" href="{{ route('users.edit',Auth::id()) }}">
                                 <i class="material-icons">perm_identity</i>个人中心
                             </a>
                              <a class="dropdown-item" href="{{ route('users.edit',Auth::id()) }}">
@@ -46,10 +54,9 @@
                         </div>
                     </li>
                 @endguest
-
             </ul>
 
-        </div>
+
         </div>
 </div>
 </nav>

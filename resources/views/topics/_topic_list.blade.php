@@ -2,7 +2,7 @@
 
     <ul class="list-group list-group-flush">
         @foreach ($topics as $topic)
-            <li class="list-group-item flex-column" href="">
+            <li class="list-group-item flex-column">
                 <div class="media">
                  <a class="mr-3" href="{{ route('users.show', [$topic->user_id]) }}">
                      <img class="img-thumbnail" style="width: 52px; height: 52px;" src="{{ $topic->user->avatar }}" title="{{ $topic->user->name }}">
@@ -18,7 +18,7 @@
                     <span class="badge badge-secondary badge-pill float-right"> {{ $topic->reply_count }} </span>
 
                     <div class="media-body meta">
-                        <a href="#" title="{{ $topic->category->name }}">
+                        <a href="{{ route('categories.show', $topic->category->id) }}" title="{{ $topic->category->name }}">
                             <i class="material-icons">folder</i>
                             {{ $topic->category->name }}
                         </a>
