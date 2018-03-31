@@ -10075,6 +10075,10 @@ a.text-dark:focus {
   font-weight: 400;
 }
 
+a {
+  color: #444444;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -10116,6 +10120,7 @@ a.text-dark:focus {
   border-top: 4px solid #00b5ad;
   margin-bottom: 40px;
   margin-top: 0px;
+  z-index: 1501;
 }
 
 .sticky-top .active {
@@ -10126,6 +10131,10 @@ a.text-dark:focus {
   position: relative;
   display: block;
   color: #444444;
+}
+
+.sticky-top .dropdown {
+  padding: 5px;
 }
 
 /* Sticky footer styles */

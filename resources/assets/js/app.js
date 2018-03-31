@@ -7,16 +7,39 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
 
+window.Vue = require('vue');
+import mavonEditor from "mavon-editor"
+import 'mavon-editor/dist/css/index.css'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.use(mavonEditor);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
+import MdEditor from './components/MdEditor'
+import TextBody from './components/TextBody'
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data:{
+        textinput:'',
+        t_status:false,
+        t_pre:"preview",
+    },
+    components:{
+        TextBody,
+        MdEditor,
+    },
+    methods:{
+        edittext:function(data){
+           this.textinput = data
+        },
+        edittextadd:function(data){
+
+           this.textinput = data
+        }
+    }
 });
