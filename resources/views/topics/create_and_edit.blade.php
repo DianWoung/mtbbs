@@ -46,7 +46,6 @@
 
                                     <div class="form-group">
                                         <md-editor :value="textinput" @edittextadd="edittextadd"></md-editor>
-                                        {{--<mavon-editor v-model="textinput"></mavon-editor>--}}
                                     </div>
 
                                     <div class="well well-sm">

@@ -36,7 +36,7 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topics.create') }}">
-                            <i class="material-icons">create</i>
+                            <i class="material-icons">add</i>
                         </a>
                     </li>
                     <li class="nav-item dropdown">

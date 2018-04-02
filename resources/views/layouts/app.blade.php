@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'MTBBS') - 梦途科技内部论坛</title>
-
+    <meta name="description" content="@yield('description','MTBBS')" />
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -22,17 +22,14 @@
             <div class="overlay">
             </div>
             @include('layouts._header')
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
             <div class="container">
             @include('layouts._message')
             @yield('content')
-
             </div>
         </div>
-
             @include('layouts._footer')
         </div>
     </div>
