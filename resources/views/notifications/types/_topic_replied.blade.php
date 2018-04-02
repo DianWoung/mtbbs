@@ -9,6 +9,7 @@
             <a href="{{ $notification->data['topic_link'] }}">{{ $notification->data['topic_title'] }}</a>
 
             {{-- 回复删除按钮 --}}
+
             <span class="meta pull-right" title="{{ $notification->created_at }}">
                 <i class="material-icons">access_time</i>
                 {{ $notification->created_at->diffForHumans() }}
