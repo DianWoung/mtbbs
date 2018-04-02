@@ -18,5 +18,5 @@ Auth::routes();
 Route::resource('topics','TopicsController');
 Route::resource('users','UsersController', ['only' => ['show', 'update', 'edit']]);
 Route::resource('categories','CategoriesController', ['only' => ['show']]);
-
+Route::resource('replies','RepliesController', ['only'=>['store','destroy']]);
 Route::post('upload_image', 'TopicsController@uploadImage');
