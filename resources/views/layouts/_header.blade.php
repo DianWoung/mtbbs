@@ -39,6 +39,14 @@
                             <i class="material-icons">add</i>
                         </a>
                     </li>
+                    {{-- 消息通知标记 --}}
+                    <li class="nav-item notifications-badge">
+                        <a href="{{ route('notifications.index') }}">
+                            <span class="badge badge-pill badge-info badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }} " title="消息提醒">
+                                {{ Auth::user()->notification_count }}
+                            </span>
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right:8px;">
