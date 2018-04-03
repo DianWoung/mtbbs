@@ -46,7 +46,7 @@
                                      :editable="t_status"
                                      :scroll-style="t_status"
                                      :default-open="t_pre"
-                                        style="height: 100%"></mavon-editor>
+                                        style="height: 100%;"></mavon-editor>
                     </div>
 
                     @can('update', $topic)

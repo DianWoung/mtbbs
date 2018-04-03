@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "62226bca616f5c1086d65b799a7b5df7",
+    "content-hash": "31cd40c28bd59ec225d0a66982551d87",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -371,6 +371,127 @@
             "time": "2017-11-15T23:40:40+00:00"
         },
         {
+            "name": "elasticquent/elasticquent",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elasticquent/Elasticquent.git",
+                "reference": "96811af5af96e6e38c636dd67e8f0890babb1d34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elasticquent/Elasticquent/zipball/96811af5af96e6e38c636dd67e8f0890babb1d34",
+                "reference": "96811af5af96e6e38c636dd67e8f0890babb1d34",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "elasticsearch/elasticsearch": ">1.0 <2.1",
+                "illuminate/config": "~4.2|^5",
+                "illuminate/database": "~4.2|^5",
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elasticquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Fairholm",
+                    "email": "adam.fairholm@gmail.com",
+                    "homepage": "http://adamfairholm.com"
+                }
+            ],
+            "description": "Maps Laravel Eloquent models to Elasticsearch types.",
+            "homepage": "https://github.com/elasticquent/Elasticquent",
+            "keywords": [
+                "elasticsearch",
+                "eloquent",
+                "laravel"
+            ],
+            "time": "2016-01-28T04:23:05+00:00"
+        },
+        {
+            "name": "elasticsearch/elasticsearch",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elastic/elasticsearch-php.git",
+                "reference": "9ce5bd7606f6c185d434de4f80863f998f74e179"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/9ce5bd7606f6c185d434de4f80863f998f74e179",
+                "reference": "9ce5bd7606f6c185d434de4f80863f998f74e179",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "guzzlehttp/ringphp": "~1.0",
+                "php": ">=5.4",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1",
+                "cpliakas/git-wrapper": "~1.0",
+                "mockery/mockery": "dev-master@dev",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/yaml": "2.4.3 as 2.4.2",
+                "twig/twig": "1.*"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "monolog/monolog": "Allows for client-level logging and tracing"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Elasticsearch\\": "src/Elasticsearch/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2"
+            ],
+            "authors": [
+                {
+                    "name": "Zachary Tong"
+                }
+            ],
+            "description": "PHP Client for Elasticsearch",
+            "keywords": [
+                "client",
+                "elasticsearch",
+                "search"
+            ],
+            "time": "2015-11-05T15:29:21+00:00"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.7.1",
             "source": {
@@ -605,6 +726,119 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "guzzlehttp/ringphp",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/RingPHP.git",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "guzzlehttp/streams": "~3.0",
+                "php": ">=5.4.0",
+                "react/promise": "~2.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Ring\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
+            "time": "2015-05-20T03:37:09+00:00"
+        },
+        {
+            "name": "guzzlehttp/streams",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/streams.git",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Stream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple abstraction over streams of data",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "stream"
+            ],
+            "time": "2014-10-12T19:18:40+00:00"
         },
         {
             "name": "hieu-le/active",
@@ -852,16 +1086,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.12",
+            "version": "v5.6.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
+                "reference": "baa42cf6bdd942523fafece21ec16a1843c6db0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/baa42cf6bdd942523fafece21ec16a1843c6db0f",
+                "reference": "baa42cf6bdd942523fafece21ec16a1843c6db0f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -992,7 +1226,78 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-14T17:29:38+00:00"
+            "time": "2018-03-30T13:29:58+00:00"
+        },
+        {
+            "name": "laravel/scout",
+            "version": "v4.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/scout.git",
+                "reference": "297d9c5ef94c3f70e9c76b87a02d4b527698956e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/297d9c5ef94c3f70e9c76b87a02d4b527698956e",
+                "reference": "297d9c5ef94c3f70e9c76b87a02d4b527698956e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "illuminate/bus": "~5.4",
+                "illuminate/contracts": "~5.4",
+                "illuminate/database": "~5.4",
+                "illuminate/pagination": "~5.4",
+                "illuminate/queue": "~5.4",
+                "illuminate/support": "~5.4",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "algolia/algoliasearch-client-php": "^1.10",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "suggest": {
+                "algolia/algoliasearch-client-php": "Required to use the Algolia engine (^1.10)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Scout\\ScoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Scout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Scout provides a driver based solution to searching your Eloquent models.",
+            "keywords": [
+                "algolia",
+                "laravel",
+                "search"
+            ],
+            "time": "2018-03-16T18:00:44+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1848,16 +2153,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.17",
+            "version": "v0.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec"
+                "reference": "5357b1cffc8fb375d6a9e3c86d5c82dd38a40834"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/5069b70e8c4ea492c2b5939b6eddc78bfe41cfec",
-                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/5357b1cffc8fb375d6a9e3c86d5c82dd38a40834",
+                "reference": "5357b1cffc8fb375d6a9e3c86d5c82dd38a40834",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1922,7 +2227,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-12-28T16:14:16+00:00"
+            "time": "2018-04-02T05:41:44+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2009,6 +2314,58 @@
                 "uuid"
             ],
             "time": "2018-01-20T00:28:24+00:00"
+        },
+        {
+            "name": "react/promise",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/promise.git",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/62785ae604c8d69725d693eb370e1d67e94c4053",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
+                }
+            ],
+            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
+            "keywords": [
+                "promise",
+                "promises"
+            ],
+            "time": "2017-03-25T12:08:31+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3063,6 +3420,64 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "yab/laravel-scout-mysql-driver",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YABhq/laravel-scout-mysql-driver.git",
+                "reference": "3f9cf88098265d36e158c595b25e3aa4a99e106d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YABhq/laravel-scout-mysql-driver/zipball/3f9cf88098265d36e158c595b25e3aa4a99e106d",
+                "reference": "3f9cf88098265d36e158c595b25e3aa4a99e106d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "laravel/framework": "5.3.*|5.4.*|5.5.*|5.6.*",
+                "laravel/scout": "^2.0|^3.0|^4.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yab\\MySQLScout\\Providers\\MySQLScoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yab\\MySQLScout\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Lantz",
+                    "email": "matt@yabhq.com"
+                },
+                {
+                    "name": "Damian Crisafulli",
+                    "email": "damian.crisafulli@troyweb.com"
+                }
+            ],
+            "description": "MySQL driver for Laravel Scout.",
+            "time": "2018-02-17T11:47:40+00:00"
         }
     ],
     "packages-dev": [
@@ -4127,16 +4542,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.0.2",
+            "version": "7.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9"
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/536f4d853c12d8189963435088e8ff7c0daeab2e",
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4156,7 +4571,7 @@
                 "phar-io/version": "^1.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^6.0",
+                "phpunit/php-code-coverage": "^6.0.1",
                 "phpunit/php-file-iterator": "^1.4.3",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
@@ -4209,7 +4624,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-26T07:03:12+00:00"
+            "time": "2018-03-26T07:36:48+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
