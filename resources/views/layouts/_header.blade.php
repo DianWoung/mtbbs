@@ -19,16 +19,16 @@
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
                     <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
-
             </ul>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
+            <ul class="mr-auto mt-2 mt-lg-0 nav">
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('search') }}">
                         <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </li>
+            </ul>
+            <ul class="mr-auto mt-2 mt-lg-0 nav">
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item"><a class="nav-link" href="{{ route('login')  }}">登录</a></li>
@@ -41,7 +41,7 @@
                     </li>
                     {{-- 消息通知标记 --}}
                     <li class="nav-item notifications-badge">
-                        <a href="{{ route('notifications.index') }}">
+                        <a href="{{ route('notifications.index') }}" class="nav-link">
                             <span class="badge badge-pill badge-info badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }} " title="消息提醒">
                                 {{ Auth::user()->notification_count }}
                             </span>
@@ -49,10 +49,10 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="user-avatar pull-left" style="margin-right:8px;">
+                            <span class="user-avatar pull-left">
                                 <img src="{{config('app.url').Auth::user()->avatar}}" class="img-responsive rounded-circle" width="30px" height="30px">
                             </span>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            <span style="margin-left: 5px">{{ Auth::user()->name }}</span> <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" href="{{ route('users.show',Auth::id()) }}">
