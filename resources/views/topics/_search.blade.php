@@ -15,7 +15,7 @@
                     </div>
                     <div class="d-flex w-100 justify-content-between">
                     <p class="mb-1" style="width: 90%;word-wrap:break-word;
-word-break:break-all;">{{ $topic->excerpt }}</p>
+word-break:break-all;">{!! str_replace($query,"<span style='color:red;'>".$query."</span>",$topic->excerpt) !!}</p>
                     </div>
                 </div>
                  @endforeach

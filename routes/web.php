@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','PagesController@root')->name('root');
+Route::get('/',function (){
+  return redirect()->route('topics.index');
+});
 
 Auth::routes();
 
