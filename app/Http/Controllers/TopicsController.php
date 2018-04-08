@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TopicRequest;
 use App\Handlers\ImageUploadHandler;
 use Auth;
+use App\Models\Link;
 
 class TopicsController extends Controller
 {
@@ -19,10 +20,11 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-    public function index(Request $request, Topic $topic)
+    public function index(Request $request, Topic $topic, Link $link)
     {
         $topics = $topic->withOrder($request->order)->paginate(20);
-        return view('topics.index', compact('topics'));
+        $links = $link->getAllCached();
+        return view('topics.index', compact('topics','links'));
     }
 
     public function create(Topic $topic)
@@ -41,8 +43,8 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
-//        Event::fire(new PageView($topic));
-//        $topic->timestamps = true;
+        Event::fire(new PageView($topic));
+        $topic->timestamps = true;
         return view('topics.show', compact('topic'));
     }
 
