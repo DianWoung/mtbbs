@@ -8,7 +8,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+// toastr
+@import "node_modules/toastr/toastr";
 
 @font-face {
   font-family: 'Material Icons';
@@ -208,4 +209,9 @@ body {
     font-size: .9em;
     color: #b3b3b3;
   }
+}
+
+.toast-top-right-custom {
+  top: 66px;
+  right: 12px;
 }
