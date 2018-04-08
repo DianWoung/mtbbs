@@ -41,8 +41,8 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
-        Event::fire(new PageView($topic));
-        $topic->timestamps = true;
+//        Event::fire(new PageView($topic));
+//        $topic->timestamps = true;
         return view('topics.show', compact('topic'));
     }
 

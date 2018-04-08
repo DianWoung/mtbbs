@@ -74,7 +74,7 @@
             <div class="card card-default topic-reply">
                 <div class="card-body">
                     @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
-                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->orderBy('id','desc')->get()])
                 </div>
             </div>
         </div>
