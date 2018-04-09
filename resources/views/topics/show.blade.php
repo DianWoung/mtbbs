@@ -31,14 +31,17 @@
                         {{ $topic->title }}
                     </h1>
 
-                    <div class="article-meta text-center">
+                    <div class="article-meta text-right">
                         {{ $topic->created_at->diffForHumans() }}
-                        ⋅
+                        <span> • </span>
                         <i class="material-icons">comment</i>
                         {{ $topic->reply_count }}
+                        <span> • </span>
+                        <i class="material-icons">visibility</i>
+                        {{ $topic->view_count }}
                     </div>
 
-                    <div class="topic-body">
+                    <div class="topic-body" style="margin-top: 15px">
                        <mavon-editor value='{{ $topic->body }}'
                                      :toolbars-flag="t_status"
                                      :subfield="t_status"

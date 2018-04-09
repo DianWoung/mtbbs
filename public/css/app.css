@@ -10520,3 +10520,7 @@ body {
   border-color: #00b5ad;
 }
 
+.page-link {
+  color: initial;
+}
+
