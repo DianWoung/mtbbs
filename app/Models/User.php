@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\ActiveUserHelper;
 use App\Models\Traits\LastActivedAtHelper;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,6 +11,7 @@ use Auth;
 class User extends Authenticatable
 {
     use LastActivedAtHelper;
+    use ActiveUserHelper;
 
     use Notifiable {
         notify as protected laravelNotify;

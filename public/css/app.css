@@ -10515,3 +10515,8 @@ body {
   margin-top: 20px;
 }
 
+.page-item.active .page-link {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
