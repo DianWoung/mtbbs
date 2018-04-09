@@ -31,3 +31,5 @@
         <hr>
     @endforeach
 </div>
+{{-- 分页 --}}
+{!! $replies->links() !!}
