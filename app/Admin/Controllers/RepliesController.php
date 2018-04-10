@@ -98,7 +98,7 @@ class RepliesController extends Controller
         return Admin::form(Reply::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
+            $form->textarea('content', '内容');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

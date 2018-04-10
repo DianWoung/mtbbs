@@ -71,7 +71,10 @@ class UsersController extends Controller
     protected function grid()
     {
         return Admin::grid(User::class, function (Grid $grid) {
-
+            $grid->actions(function ($actions) {
+                $actions->disableDelete();
+                $actions->disableEdit();
+            });
             $grid->id('ID')->sortable();
             $grid->name('昵称');
             $grid->email('注册邮箱');

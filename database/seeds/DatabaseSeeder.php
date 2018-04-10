@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Admin\Database\AdminTablesSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,9 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(TopicTableSeeder::class);
-        $this->call(RepliesTableSeeder::class);
-        $this->call(LinksTableSeeder::class);
+        if (env('APP_ENV') == 'local')
+        {
+            $this->call(UsersTableSeeder::class);
+            $this->call(TopicTableSeeder::class);
+            $this->call(RepliesTableSeeder::class);
+            $this->call(LinksTableSeeder::class);
+        }
+        $this->call(AdminTablesSeeder::class);
     }
 }
