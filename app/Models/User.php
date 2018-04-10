@@ -32,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'introduction', 'avatar'
+        'name', 'email', 'password', 'introduction', 'avatar', 'followers'
     ];
 
     /**
@@ -69,17 +69,26 @@ class User extends Authenticatable
     //关注模块
     public function follow($follower_id)
     {
-        $this->followers = trim($this->followers,',').','.$follower_id;
-        $this->save();
+        if (!$this->isFollowed($follower_id)) {
+            $followers = trim($this->followers.','.$follower_id,',');
+           return $this->update(['followers' => $followers]);
+        }
+        return true;
     }
     //取消关注
     public function unfollow($follower_id)
     {
         $followerList = explode(',',$this->followers);
-        if(in_array($follower_id,$followerList)) {
+        if($this->isFollowed($follower_id)) {
             $followerList = array_diff($followerList, [$follower_id]);
+            $followers = trim(implode(',',$followerList),',');
+         return $this->update(['followers' => $followers]);
         }
-        $this->followers = trim(implode(',',$followerList),',');
-        $this->save();
+        return true;
+    }
+    //检测是否在关注列表
+    public function isFollowed($id)
+    {
+        return in_array($id, explode(',',$this->followers));
     }
 }

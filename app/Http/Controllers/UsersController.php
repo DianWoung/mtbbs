@@ -12,12 +12,13 @@ use App\Handlers\ImageUploadHandler;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use Auth;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth');
     }
 
     public function show(User $user)
@@ -43,5 +44,22 @@ class UsersController extends Controller
         }
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success','资料更新成功');
+    }
+
+    public function follow(Request $request)
+    {
+        $flower_id = $request->input('flower_id');
+        $status = Auth::user()->follow($flower_id);
+        return [
+            'status' => $status
+        ];
+    }
+    public function unfollow(Request $request)
+    {
+        $flower_id = $request->input('flower_id');
+        $status = Auth::user()->unfollow($flower_id);
+        return [
+          'status' => $status
+        ];
     }
 }

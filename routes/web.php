@@ -39,3 +39,6 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 Route::post('upload_image', 'TopicsController@uploadImage');
 
 Route::get('search','TopicsController@searching')->name('search');
+
+Route::get('follow/user', 'UsersController@follow');
+Route::get('unfollow/user', 'UsersController@unfollow');
