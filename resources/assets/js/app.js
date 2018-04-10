@@ -41,6 +41,7 @@ Vue.use(mavonEditor);
 import MdEditor from './components/MdEditor'
 import TextBody from './components/TextBody'
 import MsgBox from './components/MsgBox'
+import FollowButton from './components/FollowButton'
 
 const app = new Vue({
     el: '#app',
@@ -53,6 +54,7 @@ const app = new Vue({
         TextBody,
         MdEditor,
         MsgBox,
+        FollowButton,
     },
     methods:{
         edittext:function(data){

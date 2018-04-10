@@ -14,7 +14,8 @@ PHP7.0
 4, php artisan migrate 导入数据表
 
 5, php artisan db:seed 填充后台数据
-######注意,当env中环境为
+######注意,当env中环境配置
+ DB_SEED_MOCK=false 代表是否填充假数据
 
 5, 开启redis,运行php artisan queue:listen
    运行队列

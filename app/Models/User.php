@@ -65,4 +65,21 @@ class User extends Authenticatable
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
+
+    //关注模块
+    public function follow($follower_id)
+    {
+        $this->followers = trim($this->followers,',').','.$follower_id;
+        $this->save();
+    }
+    //取消关注
+    public function unfollow($follower_id)
+    {
+        $followerList = explode(',',$this->followers);
+        if(in_array($follower_id,$followerList)) {
+            $followerList = array_diff($followerList, [$follower_id]);
+        }
+        $this->followers = trim(implode(',',$followerList),',');
+        $this->save();
+    }
 }

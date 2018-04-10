@@ -12,6 +12,10 @@
 
                         <img class="img-fluid img-thumbnail rounded" src="{{ config('app.url').$user->avatar }}" width="300px" height="300px">
                         <div class="media-body">
+                            @if(Auth::user()->id !== $user->id)
+                            <hr>
+                            <follow-button status="true"></follow-button>
+                            @endif
                             <hr>
                             <h4><strong>个人简介</strong></h4>
                             <p>{{ $user->introduction }} </p>
