@@ -10562,3 +10562,16 @@ body {
   color: initial;
 }
 
+.follow-info {
+  text-align: center;
+}
+
+.follow-info a {
+  display: block;
+  white-space: nowrap;
+}
+
+.follow-info .counter {
+  color: red;
+}
+

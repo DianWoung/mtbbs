@@ -3,7 +3,6 @@
 @section('title', $user->name . ' 的个人中心')
 
 @section('content')
-
     <div class="row">
 
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
@@ -12,9 +11,24 @@
 
                         <img class="img-fluid img-thumbnail rounded" src="{{ config('app.url').$user->avatar }}" width="300px" height="300px">
                         <div class="media-body">
+                            <hr>
+                            <div class="follow-info row">
+                                <div class="col-sm-4">
+                                    <a class="counter" href="{{ route('users.following', $user->id) }}">{{ $user->followingCount }}</a>
+                                    <a class="text" href="">关注</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="counter" href="{{ route('users.followers', $user->id) }}">{{ $user->followersCount }}</a>
+                                    <a class="text" href="">关注者</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="counter" href="{{ route('users.show', $user->id) }}">{{ $user->topicsCount }}</a>
+                                    <a class="text" href="">文章</a>
+                                </div>
+                            </div>
+
                             @if(Auth::user()->id !== $user->id)
                             <hr>
-
                             <follow-button id="{{ $user->id }}" status="{!! Auth::user()->isFollowed($user->id)? "true":"false" !!}"></follow-button>
                             @endif
                             <hr>
@@ -37,21 +51,12 @@
                     <h2 style="font-size:30px;">{{ $user->name }} <small>{{ $user->email }}</small></h2>
                 </div>
             </div>
-
-            {{-- 用户发布的内容 --}}
-            <div class="card" style="margin-top: 25px;">
-                <div class="card-body">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link  {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">Ta 的话题</a></li>
-                        <li class="nav-item"><a class="nav-link {{ active_class(if_query('tab', 'replies')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'replies']) }}">Ta 的回复</a></li>
-                    </ul>
-                    @if (if_query('tab', 'replies'))
-                        @include('users._replies', ['replies' => $user->replies()->with('topic')->recent()->paginate(5)])
-                    @else
-                        @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)])
-                    @endif
-                </div>
-            </div>
+            @if($type == 'tab')
+            @include('users._tab',['user' => $user])
+                @endif
+            @if($type == 'followers')
+                @include('users._followers',['followers' => $followers, 'tag' => $tag])
+                @endif
 
         </div>
     </div>

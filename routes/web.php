@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\UsersController;
 
 Route::get('/',function (){
   return redirect()->route('topics.index');
@@ -42,3 +43,13 @@ Route::get('search','TopicsController@searching')->name('search');
 
 Route::get('follow/user', 'UsersController@follow');
 Route::get('unfollow/user', 'UsersController@unfollow');
+
+Route::get('users/{id}/followers', function ($id){
+    $users = new UsersController();
+   return $users->followers($id, 'followers');
+})->name('users.followers');
+
+Route::get('users/{id}/following', function ($id){
+    $users = new UsersController();
+    return $users->followers($id, 'following');
+})->name('users.following');

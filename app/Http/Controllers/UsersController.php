@@ -23,7 +23,40 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $user->followingCount = $this->setFollowers($user->following);
+        $user->followersCount = $this->setFollowers($user->followers);
+        $user->topicsCount = $user->topics->count();
+        $type = 'tab';
+        return view('users.show', compact('user','type'));
+    }
+
+    private function setFollowers($attribute)
+    {
+         if (is_numeric($attribute)){
+            $attribute = 1;
+        } else if ($attribute != ''){
+             $attribute = count(explode(',',$attribute));
+         } else {
+            $attribute = 0;
+        }
+        return $attribute;
+    }
+
+    private function getFollowers($attribute)
+    {
+        $arr = [];
+        if (is_numeric($attribute)){
+            $arr[0] = User::find($attribute);
+        } else if ($attribute != ''){
+            $ids = explode(',', $attribute);
+            foreach($ids as $id)
+            {
+                array_push($arr, User::find($id));
+            }
+        } else {
+            $arr = [];
+        }
+        return $arr;
     }
 
     public function edit(User $user)
@@ -61,5 +94,20 @@ class UsersController extends Controller
         return [
           'status' => $status
         ];
+    }
+
+    public function followers($id, $tag)
+    {
+        $user = User::find($id);
+        $user->followingCount = $this->setFollowers($user->following);
+        $user->followersCount = $this->setFollowers($user->followers);
+        $user->topicsCount = $user->topics->count();
+        if ($tag == 'followers') {
+            $followers = $this->getFollowers($user->followers);
+        } else {
+            $followers = $this->getFollowers($user->following);
+        }
+        $type = 'followers';
+        return view('users.show', compact('user','type', 'followers', 'tag'));
     }
 }

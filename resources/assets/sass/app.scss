@@ -243,3 +243,17 @@ body {
 .page-link {
   color: initial;
 }
+
+.follow-info {
+  text-align: center;
+  a {
+    display: block;
+    white-space:nowrap;
+  }
+  .counter {
+    color:red;
+  }
+  .text {
+
+  }
+}
