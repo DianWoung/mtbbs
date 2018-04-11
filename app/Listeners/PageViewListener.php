@@ -30,7 +30,7 @@ class PageViewListener
         $topic = $event->topic;
         if (!$this->hasViewedTopic($topic)) {
             $topic->timestamps=false;
-            $topic->cache_view = $topic->cache_view + 1;
+            $topic->view_count = $topic->view_count + 1;
             $topic->save();
             $this->storeViewedTopic($topic);
         }
