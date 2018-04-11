@@ -24,7 +24,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 topic-content">
             <div class="card">
                 <div class="card-body">
@@ -32,14 +31,17 @@
                         {{ $topic->title }}
                     </h1>
 
-                    <div class="article-meta text-center">
+                    <div class="article-meta text-right">
                         {{ $topic->created_at->diffForHumans() }}
-                        ⋅
+                        <span> • </span>
                         <i class="material-icons">comment</i>
                         {{ $topic->reply_count }}
+                        <span> • </span>
+                        <i class="material-icons">visibility</i>
+                        {{ $topic->view_count }}
                     </div>
 
-                    <div class="topic-body">
+                    <div class="topic-body" style="margin-top: 15px">
                        <mavon-editor value='{{ $topic->body }}'
                                      :toolbars-flag="t_status"
                                      :subfield="t_status"
@@ -74,7 +76,7 @@
             <div class="card card-default topic-reply">
                 <div class="card-body">
                     @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
-                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->orderBy('id','desc')->recent()->paginate(10)])
                 </div>
             </div>
         </div>

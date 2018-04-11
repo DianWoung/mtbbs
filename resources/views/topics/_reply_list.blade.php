@@ -19,7 +19,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-sm btn-danger" style="padding: 0">
-                            <i class="material-icons">delete</i>
+                            <i class="material-icons md-18">delete_forever</i>
                              </button>
                         </form>
                     </span>
@@ -31,3 +31,5 @@
         <hr>
     @endforeach
 </div>
+{{-- 分页 --}}
+{!! $replies->links() !!}

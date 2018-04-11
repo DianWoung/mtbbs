@@ -8,7 +8,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+// toastr
+@import "node_modules/toastr/toastr";
 
 @font-face {
   font-family: 'Material Icons';
@@ -44,6 +45,20 @@ a {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 .navbar-laravel {
   background-color: #fff;
@@ -151,8 +166,8 @@ body {
       background-color: #d8d8d8;
     }
     hr {
-      margin-top: 12px;
-      margin-bottom: 12px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       border: 0;
       border-top: 1px solid #dcebf5;
     }
@@ -208,4 +223,41 @@ body {
     font-size: .9em;
     color: #b3b3b3;
   }
+}
+
+.toast-top-right-custom {
+  top: 66px;
+  right: 12px;
+}
+
+.active-users {
+  margin-top: 20px;
+}
+
+
+.page-item.active .page-link {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.page-link {
+  color: initial;
+}
+
+.follow-info {
+  text-align: center;
+  a {
+    display: block;
+    white-space:nowrap;
+  }
+  .counter {
+    color:red;
+  }
+  .text {
+
+  }
+}
+
+.breadcrumb {
+  background-color: white;
 }

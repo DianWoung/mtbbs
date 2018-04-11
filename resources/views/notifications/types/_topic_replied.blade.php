@@ -5,10 +5,8 @@
     <div class="infos media-body">
         <div class="mt-0">
             <a href="{{ route('users.show', $notification->data['user_id']) }}">{{ $notification->data['user_name'] }}</a>
-            评论了
-            <a href="{{ $notification->data['topic_link'] }}">{{ $notification->data['topic_title'] }}</a>
-
-            {{-- 回复删除按钮 --}}
+            评论了您的文章
+            《<a href="{{ $notification->data['topic_link'] }}">{{ $notification->data['topic_title'] }}</a>》
 
             <span class="meta pull-right" title="{{ $notification->created_at }}">
                 <i class="material-icons">access_time</i>

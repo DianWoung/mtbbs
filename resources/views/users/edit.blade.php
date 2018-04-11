@@ -2,8 +2,18 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="card col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('password.reset',$user->remember_token) }}">
+                <button class="btn btn-danger">重置密码</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="card col-md-9 col-md-offset-1">
             <div class="card-body">
                 <h4>
                     <i class="material-icons">settings</i> 编辑个人资料

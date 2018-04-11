@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCacheViewToTopicsTable extends Migration
+class CreateLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddCacheViewToTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->integer('cache_view')->unsigned()->default(0);
+        Schema::create('links', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title')->comment("文章标题");
+            $table->string('link')->comment("文章链接");
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddCacheViewToTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('cache_view');
-        });
+        Schema::dropIfExists('links');
     }
 }

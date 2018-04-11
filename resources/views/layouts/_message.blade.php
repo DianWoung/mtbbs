@@ -1,20 +1,11 @@
 @if (Session::has('message'))
-    <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        {{ Session::get('message') }}
-    </div>
+    <msg-box type="info" message="{{ Session::get('message') }}"></msg-box>
 @endif
 
 @if (Session::has('success'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        {{ Session::get('success') }}
-    </div>
+    <msg-box type="success" message="{{ Session::get('success') }}"></msg-box>
 @endif
 
 @if (Session::has('danger'))
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        {{ Session::get('danger') }}
-    </div>
+    <msg-box type="warning" message="{{ Session::get('warning') }}"></msg-box>
 @endif

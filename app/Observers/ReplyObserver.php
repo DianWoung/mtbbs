@@ -3,6 +3,8 @@ namespace App\Observers;
 
 use App\Models\Reply;
 use App\Notifications\TopicReplied;
+use App\Notifications\UserDynamicsFromReply;
+use Auth;
 
 class ReplyObserver
 {
@@ -11,6 +13,7 @@ class ReplyObserver
         $topic = $reply->topic;
         $topic->increment('reply_count', 1);
         $topic->user->notify(new TopicReplied($reply));
+        Auth::user()->broadcast(new UserDynamicsFromReply($reply));
     }
 
     public function creating(Reply $reply)

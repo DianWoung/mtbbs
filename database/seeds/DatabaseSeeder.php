@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Admin\Database\AdminTablesSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,8 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+        if (env('DB_SEED_MOCK'))
+        {
+            $this->call(UsersTableSeeder::class);
+            $this->call(RepliesTableSeeder::class);
+            $this->call(LinksTableSeeder::class);
+        }
+        if (env('DB_SEED_INSTALL'))
         $this->call(TopicTableSeeder::class);
-        $this->call(RepliesTableSeeder::class);
+        $this->call(AdminTablesSeeder::class);
     }
 }
