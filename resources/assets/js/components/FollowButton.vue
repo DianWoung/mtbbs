@@ -7,10 +7,10 @@
 <script>
     export default {
         name: "FollowButton",
-        props:['status'],
+        props:['status','id'],
         created(){
-            this.status === 'true' ? this.switcherInfo = this.followed:this.unfollow
-            this.status === 'true' ? this.switcherStatus = true:false
+            this.status === 'true' ? this.switcherInfo = this.followed : this.switcherInfo = this.unfollow
+            this.status === 'true' ? this.switcherStatus = true : this.switcherStatus = false
         },
         data () {
             return {
@@ -35,10 +35,26 @@
                 if(this.switcherStatus === true){
                     this.switcherStatus = false
                     this.switcherInfo = this.unfollow
+                    this.unfollowUser();
                 } else {
                     this.switcherStatus = true
                     this.switcherInfo = this.followed
+                    this.followUser();
                 }
+            },
+            followUser:function () {
+                axios.get('/follow/user?flower_id='+this.id).then((resp)=>{
+                    if (resp.data.status){
+                        console.log('success');
+                    }
+                });
+            },
+            unfollowUser:function () {
+                axios.get('/unfollow/user?flower_id='+this.id).then((resp)=>{
+                    if (resp.data.status){
+                        console.log('success');
+                    }
+                });
             }
         }
     }

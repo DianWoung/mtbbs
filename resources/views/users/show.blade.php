@@ -14,7 +14,8 @@
                         <div class="media-body">
                             @if(Auth::user()->id !== $user->id)
                             <hr>
-                            <follow-button status="true"></follow-button>
+
+                            <follow-button id="{{ $user->id }}" status="{!! Auth::user()->isFollowed($user->id)? "true":"false" !!}"></follow-button>
                             @endif
                             <hr>
                             <h4><strong>个人简介</strong></h4>

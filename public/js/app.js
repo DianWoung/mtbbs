@@ -49119,7 +49119,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49139,10 +49139,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "FollowButton",
-    props: ['status'],
+    props: ['status', 'id'],
     created: function created() {
-        this.status === 'true' ? this.switcherInfo = this.followed : this.unfollow;
-        this.status === 'true' ? this.switcherStatus = true : false;
+        this.status === 'true' ? this.switcherInfo = this.followed : this.switcherInfo = this.unfollow;
+        this.status === 'true' ? this.switcherStatus = true : this.switcherStatus = false;
     },
     data: function data() {
         return {
@@ -49168,10 +49168,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.switcherStatus === true) {
                 this.switcherStatus = false;
                 this.switcherInfo = this.unfollow;
+                this.unfollowUser();
             } else {
                 this.switcherStatus = true;
                 this.switcherInfo = this.followed;
+                this.followUser();
             }
+        },
+        followUser: function followUser() {
+            axios.get('/follow/user?flower_id=' + this.id).then(function (resp) {
+                if (resp.data.status) {
+                    console.log('success');
+                }
+            });
+        },
+        unfollowUser: function unfollowUser() {
+            axios.get('/unfollow/user?flower_id=' + this.id).then(function (resp) {
+                if (resp.data.status) {
+                    console.log('success');
+                }
+            });
         }
     }
 });

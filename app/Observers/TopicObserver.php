@@ -3,9 +3,15 @@
 namespace App\Observers;
 
 use App\Models\Topic;
+use App\Notifications\UserDynamicsFromTopic;
+use Auth;
 
 class TopicObserver
 {
+    public function created(Topic $topic)
+    {
+        Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+    }
     public function saving(Topic $topic)
     {
         $topic->body = clean($topic->body, 'user_topoc_body');

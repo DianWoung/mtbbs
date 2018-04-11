@@ -8,12 +8,10 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class TopicReplied extends Notification implements ShouldQueue
+class UserDynamicsFromReply extends Notification implements ShouldQueue
 {
     use Queueable;
-
     public $reply;
-
     /**
      * Create a new notification instance.
      *
@@ -35,12 +33,11 @@ class TopicReplied extends Notification implements ShouldQueue
         return ['database'];
     }
 
-
     public function toDatabase($notifiable)
     {
         $topic = $this->reply->topic;
-        $link  = $topic->link(['#reply'.$this->reply->id]);
-
+        $link = $topic->link(['#reply' . $this->reply->id]);
+        // 存入数据库里的数据
         return [
             'reply_id' => $this->reply->id,
             'reply_content' => $this->reply->content,
@@ -54,6 +51,20 @@ class TopicReplied extends Notification implements ShouldQueue
     }
 
     /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
+    }
+
+    /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
@@ -64,13 +75,5 @@ class TopicReplied extends Notification implements ShouldQueue
         return [
             //
         ];
-    }
-
-    public function toMail($notifiable)
-    {
-        $url = $this->reply->topic->link(['#reply'. $this->reply->id]);
-        return (new MailMessage)
-                        ->line('你的话题有新回复！')
-                        ->action('查看回复', $url);
     }
 }
