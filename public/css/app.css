@@ -10492,8 +10492,8 @@ body {
 
 .topics-index-page .topic-list hr,
 .categories-show-page .topic-list hr {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 0;
   border-top: 1px solid #dcebf5;
 }
@@ -10573,5 +10573,9 @@ body {
 
 .follow-info .counter {
   color: red;
+}
+
+.breadcrumb {
+  background-color: white;
 }
 

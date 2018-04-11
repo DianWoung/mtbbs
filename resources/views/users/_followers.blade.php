@@ -1,14 +1,21 @@
 {{-- 关注列表 --}}
 <div class="card" style="margin-top: 25px;">
     <div class="card-body">
-        @if ($tag == 'followers')
-        <h5>关注TA的人</h5>
-        @elseif($tag == 'following')
-        <h5>TA关注的人</h5>
-        @endif
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" ><a href="{{ route('users.show', $user->id) }}" style="color:#00acd6">个人中心</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    @if ($tag == 'followers')
+                        关注TA的人
+                    @elseif($tag == 'following')
+                        TA关注的人
+                    @endif</li>
+            </ol>
+        </nav>
+
 
         @if (count($followers))
-            <ul class="list-group">
+            <ul class="list-group list-group-flush">
                 @foreach ($followers as $follower)
                     <li class="list-group-item">
                         <a href="{{route('users.show', $follower->id)}}">
