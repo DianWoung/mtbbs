@@ -14304,6 +14304,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_MsgBox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_MsgBox__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_FollowButton__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_FollowButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_FollowButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_FavorButton__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_FavorButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_FavorButton__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14357,14 +14359,14 @@ var app = new Vue({
         TextBody: __WEBPACK_IMPORTED_MODULE_3__components_TextBody___default.a,
         MdEditor: __WEBPACK_IMPORTED_MODULE_2__components_MdEditor___default.a,
         MsgBox: __WEBPACK_IMPORTED_MODULE_4__components_MsgBox___default.a,
-        FollowButton: __WEBPACK_IMPORTED_MODULE_5__components_FollowButton___default.a
+        FollowButton: __WEBPACK_IMPORTED_MODULE_5__components_FollowButton___default.a,
+        FavorButton: __WEBPACK_IMPORTED_MODULE_6__components_FavorButton___default.a
     },
     methods: {
         edittext: function edittext(data) {
             this.textinput = data;
         },
-        edittextadd: function edittextadd(data) {
-
+        edittextbody: function edittextbody(data) {
             this.textinput = data;
         }
     }
@@ -48702,7 +48704,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48774,8 +48776,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 data: formdata,
                 headers: { 'Content-Type': 'multipart/form-data' }
             }).then(function (e) {
-                console.log(e.data.url);
-                if (e.status == 200) {
+                if (e.status === 200) {
                     _this.$refs.md.$img2Url(pos, _this.host + e.data.url);
                 } else {
                     alert("图片上传失败！");
@@ -48783,7 +48784,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         emitChange: function emitChange(value) {
-            this.$emit('edittextadd', value);
+            this.$emit('edittextbody', value);
         }
     }
 });
@@ -49234,6 +49235,256 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(80)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(82)
+/* template */
+var __vue_template__ = __webpack_require__(83)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-5c2be169"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\FavorButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5c2be169", Component.options)
+  } else {
+    hotAPI.reload("data-v-5c2be169", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(81);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(14)("71c3cba9", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c2be169\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FavorButton.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c2be169\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FavorButton.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "FavorButton",
+    props: ['status', 'uid', 'avatar', 'tid', 'favors'],
+    created: function created() {
+        this.getFavors(this.tid);
+        this.status === 'true' ? this.switcherInfo = this.favored : this.switcherInfo = this.favor;
+        this.status === 'true' ? this.switcherStatus = true : this.switcherStatus = false;
+    },
+    data: function data() {
+        return {
+            switcherStatus: false,
+            switcherInfo: '',
+            favored: {
+                isActive: true,
+                msg: '已赞'
+            },
+            favor: {
+                isActive: false,
+                msg: '点赞'
+            },
+            userList: []
+
+        };
+    },
+
+    methods: {
+        favorSwitch: function favorSwitch() {
+            if (this.switcherStatus === true) {
+                this.switcherStatus = false;
+                this.switcherInfo = this.favor;
+                this.unfavorTopic();
+            } else {
+                this.switcherStatus = true;
+                this.switcherInfo = this.favored;
+                this.favorTopic();
+            }
+        },
+        favorTopic: function favorTopic() {
+            this.userList.push({
+                id: this.uid,
+                avatar: this.avatar
+            });
+            axios.get('/users/' + this.uid + '/topics/' + this.tid + '/favor').then(function (resp) {
+                if (resp.data.status) {
+                    console.log('success');
+                }
+            });
+        },
+        unfavorTopic: function unfavorTopic() {
+            var _this = this;
+
+            this.userList.forEach(function (items, index) {
+                if (items.id == _this.uid) {
+
+                    _this.userList.splice(index, 1);
+                    axios.get('/users/' + _this.uid + '/topics/' + _this.tid + '/unfavor').then(function (resp) {
+                        if (resp.status) {
+                            console.log(resp);
+                        }
+                    });
+                }
+            });
+        },
+        getFavors: function getFavors(id) {
+            var _this2 = this;
+
+            axios.get('/topics/' + id + '/favors').then(function (resp) {
+                if (resp.status) {
+                    _this2.userList = resp.data;
+                }
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "card card-default topic-favors text-center" },
+    [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-danger",
+            class: { active: _vm.switcherInfo.isActive },
+            attrs: { type: "button" },
+            on: { click: _vm.favorSwitch }
+          },
+          [
+            _c("i", { staticClass: "material-icons" }, [_vm._v("thumb_up")]),
+            _vm._v(_vm._s(_vm.switcherInfo.msg))
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-text", staticStyle: { "margin-top": "10px" } },
+          _vm._l(_vm.userList, function(users) {
+            return _c("span", { staticClass: "user-avatar" }, [
+              _c("a", { attrs: { href: "/users/" + users.id } }, [
+                _c("img", {
+                  staticClass: "img-responsive rounded-circle",
+                  staticStyle: { padding: "1px" },
+                  attrs: { src: users.avatar, width: "30px", height: "30px" }
+                })
+              ])
+            ])
+          })
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5c2be169", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

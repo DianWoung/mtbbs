@@ -95,6 +95,11 @@ class TopicsController extends Controller
             $grid->column('title','文章标题');
             $grid->column('user.name','作者');
             $grid->column('category.name','类别');
+            $states = [
+                'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+                'off' => ['value' => 0, 'text' => '关闭', 'color' => 'default'],
+            ];
+            $grid->sticky('置顶')->switch($states);
             $grid->created_at();
             $grid->updated_at();
         });
@@ -112,6 +117,11 @@ class TopicsController extends Controller
             $form->display('id', 'ID');
             $form->text('title','标题');
 //            $form->editor('body','文章内容');
+            $states = [
+                'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+                'off' => ['value' => 0, 'text' => '关闭', 'color' => 'default'],
+            ];
+            $form->switch('sticky','是否置顶')->states($states);
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

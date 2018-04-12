@@ -21,6 +21,10 @@
                             </a>
                         </div>
                     </div>
+                    @if(Auth::user()->id !== $topic->user->id)
+                        <hr>
+                        <follow-button id="{{ $topic->user->id }}" status="{!! Auth::user()->isFollowed($topic->user->id)? "true":"false" !!}"></follow-button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -71,6 +75,14 @@
 
                 </div>
             </div>
+
+            <favor-button status="{!! $topic->isFavored(Auth::user()->id)? "true":"false"  !!}"
+                          uid="{{ Auth::user()->id }}"
+                          avatar="{{ Auth::user()->avatar }}"
+                          favors="{{ $topic->favors }}"
+                          tid="{{ $topic->id }}">
+
+            </favor-button>
 
             {{-- 用户回复列表 --}}
             <div class="card card-default topic-reply">

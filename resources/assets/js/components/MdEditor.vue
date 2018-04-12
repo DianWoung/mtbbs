@@ -23,8 +23,7 @@
                     data: formdata,
                     headers: { 'Content-Type': 'multipart/form-data' },
                 }).then((e) => {
-                    console.log(e.data.url)
-                    if(e.status == 200){
+                    if(e.status === 200){
                         this.$refs.md.$img2Url(pos, this.host+e.data.url);
                     }else{
                         alert("图片上传失败！")
@@ -33,7 +32,7 @@
             },
             emitChange(value)
             {
-            this.$emit('edittextadd',value)
+            this.$emit('edittextbody',value)
             }
         }
     }

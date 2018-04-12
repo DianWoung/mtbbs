@@ -45,7 +45,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <md-editor :value="textinput" @edittextadd="edittextadd"></md-editor>
+                                        <md-editor :value="textinput" @edittextbody="edittextbody"></md-editor>
                                     </div>
 
                                     <div class="well well-sm">

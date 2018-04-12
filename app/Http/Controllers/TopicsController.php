@@ -22,10 +22,11 @@ class TopicsController extends Controller
 
     public function index(Request $request, Topic $topic, Link $link, User $user)
     {
-        $topics = $topic->withOrder($request->order)->paginate(20);
+        $sticky = $topic->where('sticky', 1)->get();
+        $topics = $topic->where('sticky', 0)->withOrder($request->order)->paginate(20);;
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        return view('topics.index', compact('topics','links','active_users'));
+        return view('topics.index', compact('topics','links','active_users','sticky'));
     }
 
     public function create(Topic $topic)
@@ -102,5 +103,41 @@ class TopicsController extends Controller
 
 
         return view('topics._search',compact(['topics','num','query']));
+    }
+
+    public function getFavors($topic_id)
+    {
+        $attribute = Topic::find($topic_id)->favors;
+        $arr = [];
+        if (is_numeric($attribute)){
+            $arr[0] = User::find($attribute)->only('id','avatar');
+        } else if ($attribute != ''){
+            $ids = explode(',', $attribute);
+            foreach($ids as $id)
+            {
+                array_push($arr, User::find($id)->only('id','avatar'));
+            }
+        } else {
+            $arr = [];
+        }
+        return $arr;
+    }
+
+    public function favor($topic_id, $user_id)
+    {
+        $topic = Topic::find($topic_id);
+        $topic->favor($user_id);
+        return [
+            'status' => true
+        ];
+    }
+
+    public function unFavor($topic_id, $user_id)
+    {
+        $topic = Topic::find($topic_id);
+        $topic->unFavor($user_id);
+        return [
+          'status' => true
+        ];
     }
 }

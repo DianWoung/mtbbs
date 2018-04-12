@@ -37,6 +37,10 @@
 }
 /* Rules for sizing the icon. */
 
+.material-icons.md-14 {
+  font-size: 14px;
+}
+
 .material-icons.md-18 {
   font-size: 18px;
 }
@@ -10478,16 +10482,12 @@ body {
 .categories-show-page .topic-list .meta {
   font-size: 0.9em;
   color: #b3b3b3;
+  line-height: 14px;
 }
 
 .topics-index-page .topic-list .meta a,
 .categories-show-page .topic-list .meta a {
   color: #b3b3b3;
-}
-
-.topics-index-page .topic-list .badge,
-.categories-show-page .topic-list .badge {
-  background-color: #d8d8d8;
 }
 
 .topics-index-page .topic-list hr,

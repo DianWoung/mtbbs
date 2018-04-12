@@ -11,6 +11,7 @@ use Encore\Admin\Layout\Row;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
         return Admin::content(function (Content $content) {

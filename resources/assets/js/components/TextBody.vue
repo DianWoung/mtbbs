@@ -8,7 +8,7 @@
 <script>
     export default {
         name: "textbody",
-        props:['val','input', 'name'],
+        props:['val', 'input', 'name'],
         data () {
             return {
                 textInput:this.input,
