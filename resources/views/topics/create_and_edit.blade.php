@@ -41,7 +41,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" style="display:none">
-                                        <text-body :val="textinput" name="body" input="{{ old('body', $topic->body) }}" @edittext="edittext" style="height: 100%">hello</text-body>
+                                        <text-body :val="textinput" name="body" input="{{ old('body', $topic->body) }}" @edittext="edittext" style="height: 100%"></text-body>
                                     </div>
 
                                     <div class="form-group">
