@@ -16,8 +16,9 @@ PHP > 7.0
 * 5, php artisan db:seed 填充后台数据
 (注意,当env中环境配置
  DB_SEED_MOCK=false 代表是否填充假数据)
+* 6, php artisan storage:link 生成storage目录软链接
 
-* 6, 开启redis,运行php artisan queue:listen 运行队列
+* 7, 开启redis,运行php artisan queue:listen 运行队列
      
-* 7，编辑schedule.bat,startSchtasks.bat两个文件，将其中文件目录替换即可，单击startSchtasks.bat开启定时任务
+* 8，编辑schedule.bat,startSchtasks.bat两个文件，将其中文件目录替换即可，单击startSchtasks.bat开启定时任务
 
