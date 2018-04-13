@@ -20,13 +20,14 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-    public function index(Request $request, Topic $topic, Link $link, User $user)
+    public function index(Request $request, Topic $topic, Link $link, User $user, Category $categories)
     {
+        $categories = $categories->get();
         $sticky = $topic->where('sticky', 1)->get();
         $topics = $topic->where('sticky', 0)->withOrder($request->order)->paginate(20);;
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        return view('topics.index', compact('topics','links','active_users','sticky'));
+        return view('topics.index', compact('topics','links','active_users','sticky','categories'));
     }
 
     public function create(Topic $topic)
