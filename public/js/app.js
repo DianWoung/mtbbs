@@ -49316,7 +49316,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.topic-favors[data-v-5c2be169] {\r\n    margin-top: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -49375,6 +49375,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.switcherInfo = this.favor;
                 this.unfavorTopic();
             } else {
+                if (this.uid == 0) {
+                    alert('请先登陆！');
+                    return;
+                }
                 this.switcherStatus = true;
                 this.switcherInfo = this.favored;
                 this.favorTopic();

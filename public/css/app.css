@@ -10579,3 +10579,12 @@ body {
   background-color: white;
 }
 
+.v-note-wrapper .v-note-panel {
+  -webkit-box-shadow: 0 0 0 #fff !important;
+          box-shadow: 0 0 0 #fff !important;
+}
+
+.article-meta {
+  color: #8c8c8c;
+}
+

@@ -6,7 +6,7 @@
             <li class="list-group-item flex-column">
                 <div class="media">
                     <a class="mr-3" href="{{ route('users.show', [$stick->user_id]) }}">
-                        <img class="img-thumbnail" style="width: 52px; height: 52px;" src="{{ $stick->user->avatar }}" title="{{ $stick->user->name }}">
+                        <img class="img-thumbnail rounded-circle" style="width: 52px; height: 52px;" src="{{ $stick->user->avatar }}" title="{{ $stick->user->name }}">
                     </a>
                     <div class="media-body">
 
@@ -17,7 +17,7 @@
                             </a>
                         </h5>
 
-                        <span class="badge badge-secondary badge-pill float-right"> {{ $stick->reply_count }} </span>
+                        <span class="badge badge-secondary badge-pill float-right" style="background-color: #cccccc"> {{ $stick->reply_count }} </span>
 
                         <div class="media-body meta">
                             <a href="{{ route('categories.show', $stick->category->id) }}" title="{{ $stick->category->name }}">
@@ -42,7 +42,7 @@
             <li class="list-group-item flex-column">
                 <div class="media">
                  <a class="mr-3" href="{{ route('users.show', [$topic->user_id]) }}">
-                     <img class="img-thumbnail" style="width: 52px; height: 52px;" src="{{ $topic->user->avatar }}" title="{{ $topic->user->name }}">
+                     <img class="img-thumbnail rounded-circle" style="width: 52px; height: 52px;" src="{{ $topic->user->avatar }}" title="{{ $topic->user->name }}">
                  </a>
                 <div class="media-body">
                     <h5 class="mt-0">
@@ -51,7 +51,7 @@
                         </a>
                     </h5>
 
-                    <span class="badge badge-secondary badge-pill float-right"> {{ $topic->reply_count }} </span>
+                    <span class="badge badge-secondary badge-pill float-right" style="background-color: #cccccc"> {{ $topic->reply_count }} </span>
 
                     <div class="media-body meta">
                         <a href="{{ route('categories.show', $topic->category->id) }}" title="{{ $topic->category->name }}">

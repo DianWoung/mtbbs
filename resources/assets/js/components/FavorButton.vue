@@ -46,6 +46,10 @@
                     this.switcherInfo = this.favor
                     this.unfavorTopic();
                 } else {
+                    if (this.uid == 0) {
+                        alert('请先登陆！')
+                        return;
+                    }
                     this.switcherStatus = true
                     this.switcherInfo = this.favored
                     this.favorTopic();
@@ -90,5 +94,7 @@
 </script>
 
 <style scoped>
-
+.topic-favors {
+    margin-top: 15px;
+}
 </style>

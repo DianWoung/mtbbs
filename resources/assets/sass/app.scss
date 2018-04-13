@@ -260,3 +260,11 @@ body {
 .breadcrumb {
   background-color: white;
 }
+$box-color:#fff;
+.v-note-wrapper .v-note-panel {
+  box-shadow: 0 0 0 $box-color!important;
+}
+
+.article-meta {
+  color: #8c8c8c;
+}

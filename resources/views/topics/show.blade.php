@@ -21,15 +21,17 @@
                             </a>
                         </div>
                     </div>
+                    @if(Auth::check())
                     @if(Auth::user()->id !== $topic->user->id)
                         <hr>
                         <follow-button id="{{ $topic->user->id }}" status="{!! Auth::user()->isFollowed($topic->user->id)? "true":"false" !!}"></follow-button>
                     @endif
+                        @endif
                 </div>
             </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 topic-content">
-            <div class="card">
+            <div class="card" >
                 <div class="card-body">
                     <h1 class="text-center">
                         {{ $topic->title }}
@@ -38,10 +40,10 @@
                     <div class="article-meta text-right">
                         {{ $topic->created_at->diffForHumans() }}
                         <span> • </span>
-                        <i class="material-icons">comment</i>
+                        <i class="material-icons md-18">comment</i>
                         {{ $topic->reply_count }}
                         <span> • </span>
-                        <i class="material-icons">visibility</i>
+                        <i class="material-icons md-18">visibility</i>
                         {{ $topic->view_count }}
                     </div>
 
@@ -75,15 +77,21 @@
 
                 </div>
             </div>
-
+            @if(Auth::check())
             <favor-button status="{!! $topic->isFavored(Auth::user()->id)? "true":"false"  !!}"
                           uid="{{ Auth::user()->id }}"
                           avatar="{{ Auth::user()->avatar }}"
                           favors="{{ $topic->favors }}"
                           tid="{{ $topic->id }}">
-
             </favor-button>
-
+            @else
+                <favor-button status="false"
+                              uid="0"
+                              avatar="0"
+                              favors="{{ $topic->favors }}"
+                              tid="{{ $topic->id }}">
+                </favor-button>
+            @endif
             {{-- 用户回复列表 --}}
             <div class="card card-default topic-reply">
                 <div class="card-body">
