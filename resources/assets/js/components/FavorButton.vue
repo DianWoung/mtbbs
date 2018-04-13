@@ -47,7 +47,7 @@
                     this.unfavorTopic();
                 } else {
                     if (this.uid == 0) {
-                        alert('请先登陆！')
+                        toastr.warning("您还未登陆！");
                         return;
                     }
                     this.switcherStatus = true
@@ -74,7 +74,6 @@
                        this.userList.splice(index,1);
                         axios.get('/users/'+ this.uid + '/topics/' + this.tid + '/unfavor').then((resp)=>{
                             if (resp.status){
-                                console.log(resp);
                             }
                         });
                     }

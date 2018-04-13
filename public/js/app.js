@@ -14348,6 +14348,7 @@ toastr.options = {
 
 
 
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -49376,7 +49377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.unfavorTopic();
             } else {
                 if (this.uid == 0) {
-                    alert('请先登陆！');
+                    toastr.warning("您还未登陆！");
                     return;
                 }
                 this.switcherStatus = true;
@@ -49403,9 +49404,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     _this.userList.splice(index, 1);
                     axios.get('/users/' + _this.uid + '/topics/' + _this.tid + '/unfavor').then(function (resp) {
-                        if (resp.status) {
-                            console.log(resp);
-                        }
+                        if (resp.status) {}
                     });
                 }
             });
