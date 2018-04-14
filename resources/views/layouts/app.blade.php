@@ -21,7 +21,7 @@
         <div id="wrapper">
             <div class="overlay">
             </div>
-            @include('layouts._header')
+            @include('layouts._header',['categories'=> \App\Models\Category::all()])
         <!-- Page Content -->
         <div id="page-content-wrapper">
 

@@ -20,7 +20,7 @@
                     <li class="list-group-item">
                         <a href="{{route('users.show', $follower->id)}}">
                             <span class="user-avatar pull-left">
-                                <img src="{{config('app.url').Auth::user()->avatar}}" class="img-responsive rounded-circle" width="30px" height="30px">
+                                <img src="{{config('app.url').$follower->avatar}}" class="img-responsive rounded-circle" width="30px" height="30px">
                             </span>
                             <span style="margin-left: 5px">
                             {{ $follower->name }}

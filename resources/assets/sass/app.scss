@@ -161,10 +161,9 @@ body {
       a {
         color: #b3b3b3;
       }
+      line-height: 14px;
     }
-    .badge {
-      background-color: #d8d8d8;
-    }
+
     hr {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -260,4 +259,12 @@ body {
 
 .breadcrumb {
   background-color: white;
+}
+$box-color:#fff;
+.v-note-wrapper .v-note-panel {
+  box-shadow: 0 0 0 $box-color!important;
+}
+
+.article-meta {
+  color: #8c8c8c;
 }

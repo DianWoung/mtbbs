@@ -11,6 +11,7 @@
 |
 */
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TopicsController;
 
 Route::get('/',function (){
   return redirect()->route('topics.index');
@@ -40,7 +41,7 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 Route::post('upload_image', 'TopicsController@uploadImage');
 
 Route::get('search','TopicsController@searching')->name('search');
-
+//关注模块
 Route::get('follow/user', 'UsersController@follow');
 Route::get('unfollow/user', 'UsersController@unfollow');
 
@@ -53,3 +54,18 @@ Route::get('users/{id}/following', function ($id){
     $users = new UsersController();
     return $users->followers($id, 'following');
 })->name('users.following');
+//点赞模块
+Route::get('users/{uid}/topics/{tid}/favor', function ($uid, $tid){
+    $topic = new TopicsController();
+    return $topic->favor($tid, $uid);
+});
+
+Route::get('users/{uid}/topics/{tid}/unfavor', function ($uid, $tid){
+    $topic = new TopicsController();
+    return $topic->unfavor($tid, $uid);
+});
+
+Route::get('/topics/{id}/favors', function ($id){
+    $topic = new TopicsController();
+    return $topic->getFavors($id);
+});
