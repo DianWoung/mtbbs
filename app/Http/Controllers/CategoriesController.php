@@ -21,7 +21,6 @@ class CategoriesController extends Controller
                     ->paginate(20);
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        $categories = Category::get();
-        return view('topics.index',compact('topics','category','categories','links', 'active_users','sticky'));
+        return view('topics.index',compact('topics','category','links', 'active_users','sticky'));
     }
 }
