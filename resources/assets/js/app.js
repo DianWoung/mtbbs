@@ -37,11 +37,11 @@ toastr.options = {
  */
 Vue.use(mavonEditor);
 
-
 import MdEditor from './components/MdEditor'
 import TextBody from './components/TextBody'
 import MsgBox from './components/MsgBox'
 import FollowButton from './components/FollowButton'
+import FavorButton from './components/FavorButton'
 
 const app = new Vue({
     el: '#app',
@@ -55,13 +55,13 @@ const app = new Vue({
         MdEditor,
         MsgBox,
         FollowButton,
+        FavorButton,
     },
     methods:{
         edittext:function(data){
            this.textinput = data
         },
-        edittextadd:function(data){
-
+        edittextbody:function(data){
            this.textinput = data
         }
     }

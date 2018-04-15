@@ -19,7 +19,7 @@ class Topic extends Model
         return $this->only('id','title','body');
     }
 
-    protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
+    protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug', 'favors'];
 
 
 
@@ -67,5 +67,29 @@ class Topic extends Model
         return route('topics.show', array_merge([$this->id, $this->slug]));
     }
 
+    public function favor($user_id)
+    {
+        if (!$this->isFavored($user_id)) {
+            $favors = trim($this->favors.','.$user_id,',');
+            $this->update(['favors' => $favors]);
+        }
+        return true;
+    }
+
+    public function unFavor($user_id)
+    {
+        $favors = explode(',',$this->favors);
+        if ($this->isFavored($user_id)) {
+            $favors = array_diff($favors, [$user_id]);
+            $favorsList = trim(implode(',',$favors),',');
+            $this->update(['favors' => $favorsList]);
+        }
+        return true;
+    }
+
+    public function isFavored($id)
+    {
+        return in_array($id, explode(',',$this->favors));
+    }
 
 }
