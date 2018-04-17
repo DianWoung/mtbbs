@@ -3348,10 +3348,7 @@ return Sizzle;
 
 })( window );
 
-	// Easily-parseable/retrievable ID or TAG or CLASS selectors
-	rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
 
-	rsibling = /[+~]/,
 
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
@@ -3365,9 +3362,6 @@ jQuery.contains = Sizzle.contains;
 jQuery.escapeSelector = Sizzle.escape;
 
 
-		// Other potentially-special ASCII characters get backslash-escaped
-		return "\\" + ch;
-	},
 
 
 var dir = function( elem, dir, until ) {
@@ -9128,13 +9122,6 @@ jQuery.fn.extend( {
 	}
 } );
 
-function schedule() {
-	if ( inProgress ) {
-		if ( document.hidden === false && window.requestAnimationFrame ) {
-			window.requestAnimationFrame( schedule );
-		} else {
-			window.setTimeout( schedule, jQuery.fx.interval );
-		}
 
 var
 	r20 = /%20/g,
@@ -10393,10 +10380,6 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 } );
 
 
-var rfocusMorph = /^(?:focusinfocus|focusoutblur)$/,
-	stopPropagationCallback = function( e ) {
-		e.stopPropagation();
-	};
 
 
 // Support: Safari 8 only
@@ -10544,8 +10527,6 @@ jQuery.each( [
 
 
 
-		jQuery.event.trigger( e, null, elem );
-	}
 
 jQuery.expr.pseudos.animated = function( elem ) {
 	return jQuery.grep( jQuery.timers, function( fn ) {
