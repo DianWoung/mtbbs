@@ -115,7 +115,7 @@ class TopicsController extends Controller
         return Admin::form(Topic::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title','标题');
+            $form->text('title','标题')->rules('required|min:2');
 //            $form->editor('body','文章内容');
             $states = [
                 'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
