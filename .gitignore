@@ -12,8 +12,6 @@ npm-debug.log
 yarn-error.log
 .env
 /storage/debugbar
-app/Http/Controllers/Api/
-database/migrations/2018_04_19_160735_add_phone_to_users_table.php
 laradock/.editorconfig
 laradock/.github/
 laradock/.gitignore

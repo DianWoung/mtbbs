@@ -12,6 +12,7 @@
         "doctrine/dbal": " ~2.3",
         "encore/laravel-admin": "1.5.*",
         "fideloper/proxy": "^4.0",
+        "gregwar/captcha": "^1.1",
         "hieu-le/active": "^3.5",
         "intervention/image": "^2.4",
         "laravel/framework": "5.6.*",
@@ -21,6 +22,7 @@
         "mews/purifier": "^2.1",
         "overtrue/easy-sms": "^1.0",
         "predis/predis": "^1.1",
+        "socialiteproviders/weixin": "^4.0",
         "viacreative/sudo-su": "^1.1",
         "yab/laravel-scout-mysql-driver": "^2.0"
     },

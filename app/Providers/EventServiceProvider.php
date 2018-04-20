@@ -14,8 +14,12 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\PageView' => [
-            'App\Listeners\PageViewListener'
-        ]
+            'App\Listeners\PageViewListener',
+        ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            // add your listeners (aka providers) here
+            'SocialiteProviders\Weixin\WeixinExtendSocialite@handle'
+        ],
     ];
 
     /**
