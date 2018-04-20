@@ -7,6 +7,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Admin\Database\Permission
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property array $http_method
+ * @property string|null $http_path
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Encore\Admin\Auth\Database\Role[] $roles
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereHttpMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereHttpPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Permission whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Permission extends Model
 {
     /**

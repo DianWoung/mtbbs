@@ -11,6 +11,24 @@ use Illuminate\Database\Eloquent\Model;
  * Class Administrator.
  *
  * @property Role[] $roles
+ * @property int $id
+ * @property string $username
+ * @property string $password
+ * @property string $name
+ * @property string $avatar
+ * @property string|null $remember_token
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Encore\Admin\Auth\Database\Permission[] $permissions
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Administrator whereUsername($value)
+ * @mixin \Eloquent
  */
 class Administrator extends Model implements AuthenticatableContract
 {

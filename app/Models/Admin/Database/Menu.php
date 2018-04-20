@@ -12,8 +12,26 @@ use Illuminate\Support\Facades\DB;
  * Class Menu.
  *
  * @property int $id
- *
  * @method where($parent_id, $id)
+ * @property int $parent_id
+ * @property int $order
+ * @property string $title
+ * @property string $icon
+ * @property string|null $uri
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\Database\Menu[] $children
+ * @property-read \App\Models\Admin\Database\Menu $parent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Encore\Admin\Auth\Database\Role[] $roles
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Menu whereUri($value)
+ * @mixin \Eloquent
  */
 class Menu extends Model
 {

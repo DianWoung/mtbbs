@@ -5,6 +5,23 @@ namespace App\Models\Admin\Database;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * App\Models\Admin\Database\Role
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Encore\Admin\Auth\Database\Administrator[] $administrators
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Encore\Admin\Auth\Database\Permission[] $permissions
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Role whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Role whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Role whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Admin\Database\Role whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Role extends Model
 {
     protected $fillable = ['name', 'slug'];

@@ -81,3 +81,5 @@ laradock/sync.sh
 laradock/travis-build.sh
 laradock/varnish/
 laradock/workspace/
+.phpstorm.meta.php
+_ide_helper.php
