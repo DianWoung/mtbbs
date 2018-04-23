@@ -33,7 +33,18 @@ $api->version('v1',[
             ->name('api.captchas.store');
         //微信登录
         $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
-            ->name('api.socails.authorizations.store');
+            ->name('api.socials.authorizations.store');
+        //Auth
+        $api->post('authorizations', 'AuthorizationsController@store')
+            ->name('api.authorizations.store');
+        //刷新token
+        $api->put('authorizations/current', 'AuthorizationsController@update')
+            ->name('api.authorizations.update');
+        //销毁token
+        $api->delete('authorizations/current', 'AuthorizationsController@destroy')
+            ->name('api.authorizations.destroy');
+
+
     });
 
 

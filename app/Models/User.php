@@ -7,6 +7,7 @@ use App\Models\Traits\LastActivedAtHelper;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * App\Models\User
@@ -44,7 +45,7 @@ use Auth;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use LastActivedAtHelper;
     use ActiveUserHelper;
@@ -155,5 +156,17 @@ class User extends Authenticatable
     public function isFollowed($id)
     {
        return in_array($id, explode(',',$this->following));
+    }
+
+    //Rest omitted for brevity
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+       return [];
     }
 }
