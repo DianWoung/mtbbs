@@ -21,4 +21,3 @@ PHP > 7.0
 * 7, 开启redis,运行php artisan queue:listen 运行队列
      
 * 8，编辑schedule.bat,startSchtasks.bat两个文件，将其中文件目录替换即可，单击startSchtasks.bat开启定时任务
-

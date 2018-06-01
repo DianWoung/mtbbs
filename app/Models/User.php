@@ -9,42 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-/**
- * App\Models\User
- *
- * @property int $id
- * @property string $name
- * @property string|null $phone
- * @property string|null $email
- * @property string $password
- * @property string|null $remember_token
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property string|null $avatar
- * @property string|null $introduction
- * @property int $notification_count
- * @property string|null $last_actived_at
- * @property string|null $followers
- * @property string|null $following
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[] $replies
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[] $topics
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereAvatar($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereFollowers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereFollowing($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereIntroduction($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastActivedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereNotificationCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
- * @mixin \Eloquent
- */
 class User extends Authenticatable implements JWTSubject
 {
     use LastActivedAtHelper;
