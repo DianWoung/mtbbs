@@ -11,7 +11,7 @@
     <title>@yield('title', 'MTBBS') - 梦途科技内部论坛</title>
     <meta name="description" content="@yield('description','MTBBS')" />
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 

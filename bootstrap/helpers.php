@@ -1,4 +1,5 @@
 <?php
+use Dingo\Api\Facade\Route;
 
 function route_class()
 {

@@ -16,7 +16,7 @@
                 <div class="card-body topic-list">
                     <ul class="nav nav-pills">
                         <li class="nav-item {{ active_class( ! if_query('order', 'recent') ) }}"><a class="nav-link" href="{{ Request::url() }}?order=default">最后回复</a></li>
-                        <li class="nav-item {{ active_class(if_query('order', 'recent')) }}"><a class="" href="{{ Request::url() }}?order=recent">最新发布</a></li>
+                        <li class="nav-item {{ active_class(if_query('order', 'recent')) }}"><a href="{{ Request::url() }}?order=recent">最新发布</a></li>
                     </ul>
                     <br>
                         {{-- 话题列表 --}}

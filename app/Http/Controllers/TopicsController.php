@@ -12,6 +12,7 @@ use App\Http\Requests\TopicRequest;
 use App\Handlers\ImageUploadHandler;
 use Auth;
 use App\Models\Link;
+use Illuminate\Routing\Route;
 
 class TopicsController extends Controller
 {
