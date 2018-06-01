@@ -6,6 +6,9 @@ use App\Models\Link;
 use App\Models\Reply;
 use App\Models\Topic;
 use App\Models\User;
+use Dingo\Api\Facade\API;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -37,5 +40,11 @@ class AppServiceProvider extends ServiceProvider
         if (app()->isLocal()) {
             $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
         }
+        API::error(function (ModelNotFoundException $exception){
+           abort(404);
+        });
+        API::error(function (AuthorizationException $exception) {
+            abort(403, $exception->getMessage());
+        });
     }
 }

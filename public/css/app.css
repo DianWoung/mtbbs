@@ -10970,7 +10970,7 @@ body {
   margin-top: 20px;
 }
 
-.page-item .page-link {
+.page-item.active .page-link {
   background-color: #00b5ad;
   border-color: #00b5ad;
 }
