@@ -6,7 +6,7 @@ use App\Http\Requests\TopicRequest;
 use App\Models\Topic;
 use App\Transformers\TopicsTransformer;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 
 class TopicsController extends Controller
 {
@@ -25,5 +25,42 @@ class TopicsController extends Controller
 
         $topic->update($request->all());
         return $this->response->item($topic, new TopicsTransformer());
+    }
+
+    public function destroy(Topic $topic)
+    {
+        $this->authorize('update', $topic);
+        $topic->delete();
+        return $this->response->noContent();
+    }
+
+    public function index(TopicRequest $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        if ($categoryId = $request->category_id) {
+            $query->where('category_id', $categoryId);
+        }
+
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(10);
+        return $this->response->paginator($topics, new TopicsTransformer());
+    }
+
+    public function userIndex(User $user, Request $request)
+    {
+        $topics = $user->topics()->recent()
+            ->paginate(10);
+
+        return $this->response->paginator($topics, new TopicsTransformer());
     }
 }
