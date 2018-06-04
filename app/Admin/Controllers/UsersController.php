@@ -9,6 +9,10 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 use App\Models\User;
+use Encore\Admin\Widgets\Collapse;
+use Encore\Admin\Layout\Row;
+use Encore\Admin\Layout\Column;
+use Encore\Admin\Widgets\Table;
 
 class UsersController extends Controller
 {
@@ -25,7 +29,6 @@ class UsersController extends Controller
 
             $content->header('会员列表');
             $content->description('当前注册的用户');
-
             $content->body($this->grid());
         });
     }

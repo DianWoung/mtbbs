@@ -65,6 +65,10 @@ $api->version('v1',[
             $api->delete('topics/{topic}', 'TopicsController@destroy')
                 ->name('api.topics.destroy');
 
+            //发布回复
+            $api->post('topics/{topic}/replies', 'RepliesController@store')
+                ->name('api.topics.replies.store');
+
         });
         //分类列表
         $api->get('categories', 'CategoriesController@index')
@@ -75,7 +79,9 @@ $api->version('v1',[
         //某个用户的话题
         $api->get('users/{user}/topics', 'TopicsController@userIndex')
             ->name('api.users.topics.index');
-
+        //话题详情
+        $api->get('topics/{topic}', 'TopicsController@show')
+            ->name('api.topics.show');
     });
 
 
