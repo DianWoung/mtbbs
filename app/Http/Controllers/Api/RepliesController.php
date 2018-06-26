@@ -8,6 +8,7 @@ use App\Transformers\ReplyTransFormer;
 use App\Transformers\TopicsTransformer;
 use Illuminate\Http\Request;
 use App\Models\Topic;
+use App\Models\User;
 
 class RepliesController extends Controller
 {
@@ -20,5 +21,19 @@ class RepliesController extends Controller
 
         return $this->response->item($reply, new ReplyTransFormer())
             ->setStatusCode(201);
+    }
+
+    public function index(Topic $topic)
+    {
+        $replies = $topic->replies()->paginate(20);
+
+        return $this->response->paginator($replies, new ReplyTransFormer());
+    }
+
+    public function userIndex(User $user)
+    {
+        $replies = $user->replies()->paginate(20);
+
+        return $this->response->paginator($replies, new ReplyTransFormer());
     }
 }
