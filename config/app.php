@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yab\MySQLScout\Providers\MySQLScoutServiceProvider::class,
         App\Providers\EasySmsServiceProvider::class,
+        App\Providers\JpushServiceProvider::class,
     ],
 
     /*
