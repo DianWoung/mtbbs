@@ -2,12 +2,16 @@
 
 namespace App\Providers;
 
+use App\Contracts\FoolContract;
+use App\Services\FoolService;
 use Illuminate\Support\ServiceProvider;
-use JPush\Client;
 
-class JpushServiceProvider extends ServiceProvider
+class FoolServiceProvider extends ServiceProvider
 {
     protected $defer = true;
+
+
+
     /**
      * Bootstrap services.
      *
@@ -16,6 +20,7 @@ class JpushServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $GLOBALS['fool'] = 'dianwang';
     }
 
     /**
@@ -25,15 +30,12 @@ class JpushServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Client::class, function ($app) {
-            return new Client(config('jpush.key'), config('jpush.secret'));
-        });
-
-        $this->app->alias(Client::class, 'jpush');
+        $this->app->singleton('fool', FoolService::class);
+        $this->app->bind(FoolContract::class, FoolService::class);
     }
 
     public function provides()
     {
-        return ['jpush.key','jpush'];
+        return ['fool'];
     }
 }

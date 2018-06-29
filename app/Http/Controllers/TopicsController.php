@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\FoolContract;
+use App\Services\FoolService;
 use Event;
 use App\Events\PageView;
 use App\Models\Category;
@@ -12,7 +14,6 @@ use App\Http\Requests\TopicRequest;
 use App\Handlers\ImageUploadHandler;
 use Auth;
 use App\Models\Link;
-use Illuminate\Routing\Route;
 
 class TopicsController extends Controller
 {
@@ -27,6 +28,7 @@ class TopicsController extends Controller
         $topics = $topic->where('sticky', 0)->withOrder($request->order)->paginate(20);;
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
+        $fool = app()->make('fool');
         return view('topics.index', compact('topics','links','active_users','sticky'));
     }
 

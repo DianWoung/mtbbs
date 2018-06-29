@@ -162,6 +162,7 @@ return [
         Yab\MySQLScout\Providers\MySQLScoutServiceProvider::class,
         App\Providers\EasySmsServiceProvider::class,
         App\Providers\JpushServiceProvider::class,
+        App\Providers\FoolServiceProvider::class,
     ],
 
     /*
