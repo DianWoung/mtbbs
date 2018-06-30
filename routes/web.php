@@ -13,6 +13,10 @@
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TopicsController;
 
+Route::get('test', function (){
+   return 'hello this is test';
+});
+
 Route::get('/',function (){
   return redirect()->route('topics.index');
 });

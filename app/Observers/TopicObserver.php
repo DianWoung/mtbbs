@@ -4,13 +4,15 @@ namespace App\Observers;
 
 use App\Models\Topic;
 use App\Notifications\UserDynamicsFromTopic;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TopicObserver
 {
     public function created(Topic $topic)
     {
-        Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+        if (Auth::check()) {
+            Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+        }
     }
     public function saving(Topic $topic)
     {
