@@ -11,6 +11,5 @@ namespace App\Contracts;
 
 interface FoolContract
 {
-    const name = 'fool';
-    public function doFool($controller);
+    public function doFool($msg);
 }

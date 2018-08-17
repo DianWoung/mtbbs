@@ -13,12 +13,12 @@ use App\Contracts\FoolContract;
 
 class FoolService implements FoolContract
 {
-    public function __construct()
-    {
-    }
+    public $msg;
 
-    public function doFool($controller)
+    public function doFool($msg)
     {
-        return "You are fool!";
+        $this->msg = $msg;
+        $time = Date("YmdHis",time());
+        file_put_contents(public_path('dofools').'/'. $msg . '-' . $time . '.txt', $time);
     }
 }

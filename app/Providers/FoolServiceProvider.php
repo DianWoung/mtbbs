@@ -20,7 +20,7 @@ class FoolServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $GLOBALS['fool'] = 'dianwang';
+        //require_once ''
     }
 
     /**
@@ -30,8 +30,8 @@ class FoolServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('fool', FoolService::class);
-        $this->app->bind(FoolContract::class, FoolService::class);
+        $this->app->bind('fool', FoolService::class);
+        //$this->app->bind(FoolContract::class, FoolService::class);
     }
 
     public function provides()

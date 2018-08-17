@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\FoolContract;
+use App\Jobs\FoolYou;
 use App\Services\FoolService;
 use Event;
 use App\Events\PageView;
@@ -14,9 +14,13 @@ use App\Http\Requests\TopicRequest;
 use App\Handlers\ImageUploadHandler;
 use Auth;
 use App\Models\Link;
+use Illuminate\Support\Facades\App;
+
 
 class TopicsController extends Controller
 {
+    public static $num = 1;
+
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -28,7 +32,15 @@ class TopicsController extends Controller
         $topics = $topic->where('sticky', 0)->withOrder($request->order)->paginate(20);;
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        $fool = app()->make('fool');
+
+        $reflectionClass =new \ReflectionClass($user);
+        $properties = $reflectionClass->getProperties();
+        $methods = $reflectionClass->getMethods();
+
+//        App::call(FoolService::class.'@doFool', ['msg' => 'call']);
+//        App::make('fool')->doFool('make');
+
+ //       FoolYou::dispatch(new FoolService(), Topic::find(1));
         return view('topics.index', compact('topics','links','active_users','sticky'));
     }
 

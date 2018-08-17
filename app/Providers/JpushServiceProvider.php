@@ -7,7 +7,6 @@ use JPush\Client;
 
 class JpushServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
     /**
      * Bootstrap services.
      *

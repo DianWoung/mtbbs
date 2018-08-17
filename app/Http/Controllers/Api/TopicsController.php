@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\TopicRequest;
 use App\Models\Topic;
+use App\Services\FoolService;
 use App\Transformers\TopicsTransformer;
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class TopicsController extends Controller
 {
+
+
     public function show(Topic $topic)
     {
         return $this->response->item($topic, new TopicsTransformer());

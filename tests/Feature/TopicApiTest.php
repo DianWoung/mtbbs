@@ -3,15 +3,14 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
 use Tests\Traits\ActingJWTUser;
 use App\Models\Topic;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TopicApiTest extends TestCase
 {
-    use ActingJWTUser;
+    use ActingJWTUser, RefreshDatabase;
 
     protected $user;
 
