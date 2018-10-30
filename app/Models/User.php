@@ -10,7 +10,6 @@ use Auth;
 
 class User extends Authenticatable
 {
-    use LastActivedAtHelper;
     use ActiveUserHelper;
 
     use Notifiable {
