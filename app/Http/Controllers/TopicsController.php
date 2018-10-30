@@ -31,8 +31,7 @@ class TopicsController extends Controller
 
     public function create(Topic $topic)
     {
-        $categories = Category::all();
-        return view('topics.create_and_edit', compact('topic','categories'));
+        return view('topics.create_and_edit', compact('topic'));
     }
 
     public function store(TopicRequest $request, Topic $topic)
@@ -53,8 +52,7 @@ class TopicsController extends Controller
     public function edit(Topic $topic)
     {
         $this->authorize('update', $topic);
-        $categories = Category::all();
-        return view('topics.create_and_edit', compact('topic','categories'));
+        return view('topics.create_and_edit', compact('topic'));
     }
 
     public function update(TopicRequest $request, Topic $topic)

@@ -2,12 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Link;
 use App\Models\Reply;
 use App\Models\Topic;
 use App\Models\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Link::observe(\App\Observers\LinkObserver::class);
         \App\Models\User::observe(\App\Observers\UserObserver::class);
         \Carbon\Carbon::setLocale('zh');
+        View::share('categories', Category::all());
     }
 
     /**
