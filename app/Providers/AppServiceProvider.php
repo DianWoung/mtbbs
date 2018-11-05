@@ -28,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Link::observe(\App\Observers\LinkObserver::class);
         \App\Models\User::observe(\App\Observers\UserObserver::class);
         \Carbon\Carbon::setLocale('zh');
-        View::share('categories', Category::all());
+        if (optional(Category::all()))
+            View::share('categories', Category::all());
     }
 
     /**
@@ -41,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
         if (app()->isLocal()) {
             $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
         }
+
     }
 }

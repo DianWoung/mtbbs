@@ -48,5 +48,11 @@ class UsersTableSeeder extends Seeder
         $user->email = 'admin@mtaction.com';
         $user->avatar = '/storage/uploads/images/avatars/201803/26/1_1522058658_GUmGyEDzMS.jpg';
         $user->save();
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为『管理员』
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
