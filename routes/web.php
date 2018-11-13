@@ -69,3 +69,8 @@ Route::get('/topics/{id}/favors', function ($id){
     $topic = new TopicsController();
     return $topic->getFavors($id);
 });
+Route::group(['as' => 'admin::','prefix' => 'admin', 'middleware' => ['check-admin']],function ($router){
+    $router->get('home', 'Admin\DashBoardController@home')->name('home');
+    $router->resource('users', 'Admin\UsersController');
+});
+

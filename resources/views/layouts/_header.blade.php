@@ -64,7 +64,7 @@
                         </a>
                         <div class="dropdown-menu" role="menu">
                     @can('manage_contents')
-                            <a class="dropdown-item" href="{{ url(config('administrator.uri')) }}">
+                            <a class="dropdown-item" href="{{ route('admin::home')}}">
                                 <i class="material-icons">dashboard</i>
                                 管理后台
                             </a>
