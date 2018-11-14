@@ -96,4 +96,18 @@ class UsersController extends Controller
         User::destroy($id);
         return redirect()->route('admin::users.index')->with('success', '删除成功');
     }
+
+    public function setAdmin($id)
+    {
+        $user = User::find($id);
+        $user->assignRole('Maintainer');
+        return redirect()->route('admin::users.index')->with('success', '设置成功');
+    }
+
+    public function unsetAdmin($id)
+    {
+        $user = User::find($id);
+        $user->removeRole('Maintainer');
+        return redirect()->route('admin::users.index')->with('success', '设置成功');
+    }
 }

@@ -72,5 +72,7 @@ Route::get('/topics/{id}/favors', function ($id){
 Route::group(['as' => 'admin::','prefix' => 'admin', 'middleware' => ['check-admin']],function ($router){
     $router->get('home', 'Admin\DashBoardController@home')->name('home');
     $router->resource('users', 'Admin\UsersController');
+    $router->post('users/{id}/setadmin', 'Admin\UsersController@setAdmin')->name('users.set-admin');
+    $router->post('users/{id}/unsetadmin', 'Admin\UsersController@unsetAdmin')->name('users.unset-admin');
 });
 
