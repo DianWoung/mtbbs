@@ -19,7 +19,7 @@ class Topic extends Model
         return $this->only('id','title','body');
     }
 
-    protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug', 'favors'];
+    protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug', 'favors', 'is_publish'];
 
 
 

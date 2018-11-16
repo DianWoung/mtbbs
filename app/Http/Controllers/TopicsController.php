@@ -22,9 +22,10 @@ class TopicsController extends Controller
 
     public function index(Request $request, Topic $topic, Link $link, User $user)
     {
-        $sticky = $topic->where('sticky', 1)->get();
+        $sticky = $topic->where([['sticky', '=', '1'], ['is_publish' , '=' , '1']])->get();
+
         $order = $request->order;
-        $topics = $topic->where('sticky', 0)->withOrder($order)->paginate(20);;
+        $topics = $topic->withOrder($order)->where([['sticky', '=', '0'], ['is_publish' , '=' , '1']])->paginate(20);
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
         return view('topics.index', compact('topics','links','active_users','sticky', 'order'));
@@ -45,6 +46,7 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
+        $this->authorize('view', $topic);
         Event::fire(new PageView($topic));
         $topic->timestamps = true;
         return view('topics.show', compact('topic'));

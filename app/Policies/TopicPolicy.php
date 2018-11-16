@@ -29,4 +29,13 @@ class TopicPolicy extends Policy
     {
         return $user->isAuthorOf($topic);
     }
+
+    public function view(User $user, Topic $topic)
+    {
+        if ($topic->is_publish){
+            return true;
+        }else{
+            return $user->isAuthorOf($topic);
+        }
+    }
 }

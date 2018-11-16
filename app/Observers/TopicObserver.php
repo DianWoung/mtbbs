@@ -10,7 +10,16 @@ class TopicObserver
 {
     public function created(Topic $topic)
     {
-        Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+        if ($topic->is_publish){
+            Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+        }
+    }
+
+    public function updating(Topic $topic)
+    {
+        if ($topic->is_publish){
+            Auth::user()->broadcast(new UserDynamicsFromTopic($topic));
+        }
     }
     public function saving(Topic $topic)
     {

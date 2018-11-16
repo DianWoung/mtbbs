@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Handlers\ImageUploadHandler;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
@@ -26,8 +27,9 @@ class UsersController extends Controller
         $user->followingCount = $this->setFollowers($user->following);
         $user->followersCount = $this->setFollowers($user->followers);
         $user->topicsCount = $user->topics->count();
+        $drafts = $user->topics()->where('is_publish', 0)->orderBy('id', 'desc')->paginate(5);
         $type = 'tab';
-        return view('users.show', compact('user','type'));
+        return view('users.show', compact('user','type', 'drafts'));
     }
 
     private function setFollowers($attribute)

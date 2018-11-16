@@ -14,11 +14,12 @@ class CategoriesController extends Controller
     {
         $order = $request->order;
         $sticky = $topic->where([
-            'category_id' => $category->id,
-            'sticky'      => 1
+            ['category_id' , '=', $category->id ],
+            ['sticky'      ,'=' , '1'],
+            ['is_publish', '=' , '1'],
         ])->get();
         $topics = $topic->withOrder($request->order)
-                    ->where('category_id', $category->id)
+            ->where([['category_id' , '=', $category->id ],['sticky', '=', '0'], ['is_publish' , '=' , '1']])
                     ->paginate(20);
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();

@@ -48,6 +48,21 @@
                                         <md-editor :value="textinput" @edittextbody="edittextbody"></md-editor>
                                     </div>
 
+                                    <div class="form-group">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" value="0" id="save" name="is_publish" {{ old('is_publish', $topic->is_publish) ? '':'checked' }}>
+                                            <label class="form-check-label" for="save">
+                                                保存草稿
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" value="1" id="publish" name="is_publish" {{ old('is_publish', $topic->is_publish) ? 'checked':'' }}>
+                                            <label class="form-check-label" for="publish">
+                                                直接发布
+                                            </label>
+                                        </div>
+                                    </div>
+
                                     <div class="well well-sm">
                                         <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
                                     </div>

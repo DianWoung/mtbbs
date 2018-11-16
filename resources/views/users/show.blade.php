@@ -48,6 +48,16 @@
                     <h2 style="font-size:30px;">{{ $user->name }} <small>{{ $user->email }}</small></h2>
                 </div>
             </div>
+            @can('update', $user)
+                <div class="card" style="margin-top: 25px;">
+                    <div class="card-header">
+                        草稿箱
+                    </div>
+                    <div class="card-body">
+                        @include('users._drafts', ['drafts' => $drafts])
+                    </div>
+                </div>
+            @endcan
             @if($type == 'tab')
             @include('users._tab',['user' => $user])
                 @endif

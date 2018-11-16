@@ -11,10 +11,23 @@
     <title>@yield('title', 'MTBBS') - 梦途科技内部论坛</title>
     <meta name="description" content="@yield('description','MTBBS')" />
     <!-- Styles -->
-    <link href="https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        pre code {
+            display: block;
+            background: #cccccc;
+            padding: 0;
+            margin: 0;
+            overflow: initial;
+            line-height: inherit;
+            word-wrap: normal;
+            color: black;
+            border: 0;
+        }
+    </style>
 </head>
 
 <body>
