@@ -8,11 +8,11 @@
     <tr>
         <th scope="row">ID</th>
         <th>名字</th>
-        <th>邮箱</th>
         <th>头像</th>
         <th>是否为管理员</th>
         <th>注册时间</th>
         <th>操作</th>
+        <th>权限设定</th>
     </tr>
     </thead>
     <tbody>
@@ -20,13 +20,12 @@
     <tr>
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
-        <td>{{ $user->email }}</td>
         <td><img src="{{ $user->avatar }}" width="100px" /></td>
         <td>{{ $user->hasAnyRole(['Maintainer', 'Founder']) ? '是': '否' }}</td>
         <td>{{ $user->created_at->diffForHumans() }}</td>
         <td width="20%">
             <a href="{{ route('admin::users.edit', $user->id) }}" ><button type="button" class="btn btn-info btn-sm">编辑</button></a>
-            @if(Auth::id() !== $user->id)
+            @cannot('update', $user)
                 <form action="{{ route('admin::users.destroy', $user->id) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -34,25 +33,28 @@
                         删除
                     </button>
                 </form>
-            @endif
-            @if($user->hasAnyRole(['Maintainer', 'Founder']) )
-                @if(Auth::id() !== $user->id)
+            @endcannot
 
-                <form action="{{ route('admin::users.unset-admin', $user->id) }}" method="post">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger btn-sm">
-                        取消管理员
-                    </button>
-                </form>
-                 @endif
-               @else
+        </td>
+        <td>
+            @if($user->hasAnyRole(['Maintainer', 'Founder']) )
+                @cannot('update', $user)
+
+                    <form action="{{ route('admin::users.unset-admin', $user->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            取消管理员
+                        </button>
+                    </form>
+                @endcannot
+            @else
                 <form action="{{ route('admin::users.set-admin', $user->id) }}" method="post">
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger btn-sm">
                         设为管理员
                     </button>
                 </form>
-                @endif
+            @endif
         </td>
     </tr>
     @endforeach

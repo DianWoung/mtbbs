@@ -69,10 +69,14 @@ Route::get('/topics/{id}/favors', function ($id){
     $topic = new TopicsController();
     return $topic->getFavors($id);
 });
-Route::group(['as' => 'admin::','prefix' => 'admin', 'middleware' => ['check-admin']],function ($router){
+Route::group(['as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'check-admin']],function ($router){
     $router->get('home', 'Admin\DashBoardController@home')->name('home');
     $router->resource('users', 'Admin\UsersController');
     $router->post('users/{id}/setadmin', 'Admin\UsersController@setAdmin')->name('users.set-admin');
     $router->post('users/{id}/unsetadmin', 'Admin\UsersController@unsetAdmin')->name('users.unset-admin');
+
+    $router->resource('topics', 'Admin\TopicsController');
+    $router->post('topics/{id}/setsticky', 'Admin\TopicsController@setSticky')->name('topics.set-sticky');
+    $router->post('topics/{id}/unsetsticky', 'Admin\TopicsController@unsetSticky')->name('topics.unset-sticky');
 });
 

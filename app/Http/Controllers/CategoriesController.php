@@ -12,6 +12,7 @@ class CategoriesController extends Controller
 {
     public function show(Category $category, Request $request, Topic $topic, Link $link, User $user)
     {
+        $order = $request->order;
         $sticky = $topic->where([
             'category_id' => $category->id,
             'sticky'      => 1
@@ -21,6 +22,6 @@ class CategoriesController extends Controller
                     ->paginate(20);
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        return view('topics.index',compact('topics','category','links', 'active_users','sticky'));
+        return view('topics.index',compact('topics','category','links', 'active_users','sticky', 'order'));
     }
 }

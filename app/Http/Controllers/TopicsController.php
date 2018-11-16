@@ -23,10 +23,11 @@ class TopicsController extends Controller
     public function index(Request $request, Topic $topic, Link $link, User $user)
     {
         $sticky = $topic->where('sticky', 1)->get();
-        $topics = $topic->where('sticky', 0)->withOrder($request->order)->paginate(20);;
+        $order = $request->order;
+        $topics = $topic->where('sticky', 0)->withOrder($order)->paginate(20);;
         $links = $link->getAllCached();
         $active_users = $user->getActiveUsers();
-        return view('topics.index', compact('topics','links','active_users','sticky'));
+        return view('topics.index', compact('topics','links','active_users','sticky', 'order'));
     }
 
     public function create(Topic $topic)

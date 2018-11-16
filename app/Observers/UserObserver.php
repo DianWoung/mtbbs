@@ -13,4 +13,10 @@ class UserObserver
             $user->avatar = '/statics/TrJS40Ey5k.png';
         }
     }
+
+    public function deleted(User $user)
+    {
+        \DB::table('topics')->where('user_id', $user->id)->delete();
+        \DB::table('replies')->where('user_id', $user->id)->delete();
+    }
 }

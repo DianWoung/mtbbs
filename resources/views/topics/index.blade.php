@@ -23,7 +23,7 @@
                         @include('topics._topic_list', ['topics' => $topics])
                         {{-- 分页 --}}
                         <nav style="margin-top: 15px">
-                        {!! $topics->render() !!}
+                        {!! $topics->appends(['order' => $order ])->links() !!}
                         </nav>
                     </div>
             </div>

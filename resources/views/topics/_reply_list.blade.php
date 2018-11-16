@@ -25,7 +25,7 @@
                     </span>
                         @endcan
                 </h5>
-                    {!! $reply->content !!}
+                    {!! parsedown($reply->content) !!}
             </div>
             </div>
         <hr>

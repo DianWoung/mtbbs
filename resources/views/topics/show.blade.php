@@ -45,6 +45,8 @@
                         <span> • </span>
                         <i class="material-icons md-18">visibility</i>
                         {{ $topic->view_count }}
+
+
                     </div>
 
                     <div class="topic-body" style="margin-top: 15px">
@@ -57,8 +59,9 @@
                                         style="height: 100%;"></mavon-editor>
                     </div>
 
-                    @can('update', $topic)
+
                         <div class="operate">
+                            @can('update', $topic)
                             <hr>
                             <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-info btn-xs pull-left" role="button">
                                 <i class="material-icons">mode_edit</i> 编辑
@@ -72,8 +75,27 @@
                                     删除
                                 </button>
                             </form>
+                            @endcan
+                            @can('manage_contents')
+                            @if($topic->sticky == 1)
+                                <form action="{{ route('admin::topics.unset-sticky', $topic->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-warning btn-xs" style="margin-left: 6px">
+                                        <i class="material-icons">open_in_browser</i>取消置顶
+                                    </button>
+                                </form>
+                            @else
+                                <form action="{{ route('admin::topics.set-sticky', $topic->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-warning btn-xs" style="margin-left: 6px">
+                                        <i class="material-icons">open_in_browser</i>设为置顶
+                                    </button>
+                                </form>
+                            @endif
+                            @endcan
                         </div>
-                    @endcan
+
+
 
                 </div>
             </div>
