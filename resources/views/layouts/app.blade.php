@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/at.js/1.5.4/css/jquery.atwho.min.css" rel="stylesheet">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         pre code {
@@ -56,6 +57,8 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
 <script src="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js"></script>
+<script src="https://cdn.bootcss.com/Caret.js/0.3.1/jquery.caret.min.js"></script>
+<script src="https://cdn.bootcss.com/at.js/1.5.4/js/jquery.atwho.min.js"></script>
 <script type="text/javascript">
         @yield('scripts')
 </script>

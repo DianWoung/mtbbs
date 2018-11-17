@@ -13,15 +13,17 @@
 <hr>
 
 @section('scripts')
-    var simplemde = new SimpleMDE(
-    {
-        element: $("#reply-box")[0],
-        placeholder: "表达您的看法...",
 
-        renderingConfig: {
-            singleLineBreaks: false,
-            codeSyntaxHighlighting: true,
-        },
-    });
+    $('#reply-box').atwho({
+    at: "@",
+    delay:750,
+    callbacks: {
+        remoteFilter: function (query, callback) {
+            $.getJSON("/api/users",{name:query},function(usernames){
+                callback(usernames)
+            });
+        }
+     }
+})
 
 @endsection

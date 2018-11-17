@@ -3,7 +3,10 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Exceptions\UnAuthorizationException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,6 +51,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof AuthorizationException){
+           // dd($exception);
+            throw new \App\Exceptions\UnAuthorizationException('无权访问');
+        }
         return parent::render($request, $exception);
     }
 }

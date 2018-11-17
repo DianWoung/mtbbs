@@ -49,6 +49,10 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <button type="button" class="btn btn-success" id="appendFiles">添加附件</button>
+                                    </div>
+
+                                    <div class="form-group">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" value="0" id="save" name="is_publish" {{ old('is_publish', $topic->is_publish) ? '':'checked' }}>
                                             <label class="form-check-label" for="save">
@@ -71,4 +75,10 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    $("#appendFiles").click(function(){
+        console.log('hello')
+    })
+
 @endsection

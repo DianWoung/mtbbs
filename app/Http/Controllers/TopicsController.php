@@ -46,7 +46,14 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
-        $this->authorize('view', $topic);
+        if (!Auth::check()){
+            if (!$topic->is_publish){
+                abort(404, '未找到该页面');
+            }
+        }else{
+            $this->authorize('view', $topic);
+        }
+
         Event::fire(new PageView($topic));
         $topic->timestamps = true;
         return view('topics.show', compact('topic'));

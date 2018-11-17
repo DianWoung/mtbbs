@@ -20,7 +20,7 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $topics = Topic::paginate(15);
+        $topics = Topic::where('is_publish', 1)->paginate(15);
         return view('admin.topics.list', compact('topics'));
     }
 

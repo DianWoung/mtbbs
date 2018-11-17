@@ -80,3 +80,5 @@ Route::group(['as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'c
     $router->post('topics/{id}/unsetsticky', 'Admin\TopicsController@unsetSticky')->name('topics.unset-sticky');
 });
 
+//用户列表
+Route::get('/api/users', 'Api\UsersController@index');
